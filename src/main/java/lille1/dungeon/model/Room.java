@@ -10,7 +10,7 @@ public class Room {
     }
 
     protected void addDirectionRoom(String direction, Room room) {
-	this.rooms.add(new Set<String, Room>(direction, room));
+	    this.rooms.add(new Set<String, Room>(direction, room));
     }
 
     public Room nextRoom(String direction) {
