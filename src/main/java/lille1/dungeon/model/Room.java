@@ -1,5 +1,7 @@
 package lille1.dungeon.model;
 
+import java.util.Map;
+
 public class Room {
 
     private String name;
@@ -10,7 +12,7 @@ public class Room {
     }
 
     protected void addDirectionRoom(String direction, Room room) {
-	    this.rooms.add(new Set<String, Room>(direction, room));
+	    this.rooms.put(direction, room);
     }
 
     public Room nextRoom(String direction) {

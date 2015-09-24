@@ -6,7 +6,7 @@ public class Exit extends Room {
 	super("exit");
     }
 
-    @override
+    @Override
     public boolean isFinished() {
 	return true;
     }

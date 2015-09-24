@@ -1,5 +1,7 @@
 package lille1.dungeon.model;
 
+import java.util.Map;
+
 public class RoomBuilder {
 
     private Map<String, Room> rooms;
@@ -22,7 +24,7 @@ public class RoomBuilder {
     public void move(String direction, String fromDirection) {
 	Room from = this.current;
 	this.move(direction);
-	this.addDirection(fromDirection, from);
+	this.addDirection(fromDirection, fromDirection);
     }
 
     public Room create() {

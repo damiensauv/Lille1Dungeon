@@ -5,7 +5,7 @@ public class Dungeon {
     private Room current;
 
     public void interpretCommand(String direction) {
-	if (direction.startWiths("go ")) {
+	if (direction.startsWith("go ")) {
 	    this.current = current.nextRoom(direction.substring(3));
 	}
     }
@@ -15,7 +15,6 @@ public class Dungeon {
     }
 
     public static void main(String[] args) {
-	Map<
 	RoomBuilder builder = new RoomBuilder("entrance");
 	builder.addDirection("north", "trap");
 	builder.addDirection("east", "livingRoom");
