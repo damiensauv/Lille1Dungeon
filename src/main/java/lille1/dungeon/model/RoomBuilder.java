@@ -4,6 +4,7 @@ import java.util.Map;
 
 public class RoomBuilder {
 
+    public static final String[] possibleDirections = new String[4];
     private Map<String, Room> rooms;
     private Room current;
     private Room entrance;

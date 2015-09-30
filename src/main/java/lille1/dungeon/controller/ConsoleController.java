@@ -12,9 +12,7 @@ public class ConsoleController implements Controller {
         System.out.print("> ");
         return scan.nextLine();
     }
-    public String askDirection(String spec) {
-        Scanner scan = new Scanner(System.in);
-        System.out.print(spec +"\n> ");
-        return scan.nextLine();
+    public void notify(String spec) {
+        System.out.println(spec);
     }
 }

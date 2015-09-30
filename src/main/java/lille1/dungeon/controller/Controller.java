@@ -8,13 +8,15 @@ import lille1.dungeon.model.Dungeon;
 public interface Controller {
 
     public String askDirection();
-    public String askDirection(String spec);
+    public void notify(String not);
 
     public static void main(String[] args) {
-        Dungeon myDungeon = new Dungeon();
+        Dungeon myDungeon = new Dungeon(9001);
         Controller gameControl = new ConsoleController();
         do {
-            myDungeon.interpretCommand(gameControl.askDirection("Input direction :"));
+            gameControl.notify("You are in "+myDungeon.getCurrentRoom());
+            gameControl.notify("Input direction :");
+            myDungeon.interpretCommand(gameControl.askDirection());
         }
         while(!(myDungeon.gameIsFinished()));
     }

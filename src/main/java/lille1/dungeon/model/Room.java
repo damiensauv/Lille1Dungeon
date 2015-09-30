@@ -1,11 +1,13 @@
 package lille1.dungeon.model;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Room {
 
     private String name;
-    private Map<String, Room> rooms;
+    private Map<String, Room> rooms = new TreeMap<String, Room>() {
+    };
 
     public Room(String name) {
 	this.name = name;
