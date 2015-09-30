@@ -15,7 +15,10 @@ public class RoomBuilder {
     }
 
     public void addDirection(String direction, String name) {
-	    this.current.addDirectionRoom(direction, new Room(name));
+        Room roomToCreate;
+        if(name.equals("exit")||name.equals("Exit")) roomToCreate = new Exit();
+        else roomToCreate = new Room(name);
+	    this.current.addDirectionRoom(direction, roomToCreate);
     }
 
     public void move(String direction) {
