@@ -32,7 +32,7 @@ public class DungeonBuilder {
                 int nextType = 0;
                 String currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
 
-                while (this.isDirectionUsed(currentDirection,currentRoom))
+                while (currentRoom.isDirectionUsed(currentDirection, currentRoom))
                     currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
 
                 addDirection(currentDirection, possibleTypes[nextType]);
@@ -55,10 +55,6 @@ public class DungeonBuilder {
         possibleDirections[1] = "south";
         possibleDirections[2] = "east";
         possibleDirections[3] = "west";
-    }
-
-    private boolean isDirectionUsed(String currentDir, Room roomToCheck) {
-        return roomToCheck.getRoomMap().get(currentDir) != null;
     }
 
     private String getOppositeDirection(String goingTo) {

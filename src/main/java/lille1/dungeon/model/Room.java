@@ -29,7 +29,7 @@ public class Room {
 	return this.name;
     }
 
-    public Map<String, Room> getRoomMap() {
-        return this.rooms;
+    public boolean isDirectionUsed(String currentDir, Room roomToCheck) {
+        return this.rooms.get(currentDir) != null;
     }
 }
