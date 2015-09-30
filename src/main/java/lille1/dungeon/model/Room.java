@@ -18,7 +18,8 @@ public class Room {
     }
 
     public Room nextRoom(String direction) {
-	return rooms.get(direction);
+        if(rooms.get(direction)==null) return this;
+	    return rooms.get(direction);
     }
 
     public boolean isFinished() {

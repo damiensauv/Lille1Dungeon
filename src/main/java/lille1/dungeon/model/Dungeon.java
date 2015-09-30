@@ -1,7 +1,5 @@
 package lille1.dungeon.model;
 
-import java.util.Random;
-
 public class Dungeon {
 
     public static final int GENERATION_TEST_KEY = 9001;
@@ -24,7 +22,7 @@ public class Dungeon {
 	}
 
     public boolean gameIsFinished() {
-	return this.current.isFinished();
+        return this.current.isFinished();
     }
 
 

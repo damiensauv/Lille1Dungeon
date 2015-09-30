@@ -9,46 +9,27 @@ import java.util.Random;
 public class DungeonBuilder {
 
     private static final String[] possibleDirections = new String[4];
+    private static final String[] possibleTypes = {"intersection"};
     private Map<String, Room> rooms;
     private Room current;
     private Room entrance;
+    private int level;
 
     public DungeonBuilder(int level) {
-
         this.entrance = new Room("entrance");
         this.current = entrance;
+        this.level = level;
         this.initDestArray();
+    }
 
-        if (level == Dungeon.GENERATION_TEST_KEY) {
-            int trueLevel = 5;
-            int roomsLeft = trueLevel;
-            Random rand = new Random();
-
-            System.out.println("Creating the Level");
-
-            String[] possibleTypes = {"intersection"};
-
-            while (roomsLeft != 0) {
-                Room currentRoom = getCurrentRoom();
-                int nextType = 0;
-                String currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
-
-                while (currentRoom.isDirectionUsed(currentDirection, currentRoom))
-                    currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
-
-                addDirection(currentDirection, possibleTypes[nextType]);
-
-                String commingFrom = this.getOppositeDirection(currentDirection);
-
-
-                System.out.println(commingFrom + " " + roomsLeft);
-                move(currentDirection, commingFrom);
-                roomsLeft -= 1;
-            }
-
-            addDirection("west", "Exit");
-            move("west");
-        }
+    private void addExit() {
+        Random rand = new Random();
+        String currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
+        while (current.isDirectionUsed(currentDirection, current))
+            currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
+        addDirection(currentDirection, "Exit");
+        String commingFrom = this.getOppositeDirection(currentDirection);
+        System.out.println("Exit : "+currentDirection);
     }
 
     private void initDestArray() {
@@ -78,6 +59,10 @@ public class DungeonBuilder {
         this.current.addDirectionRoom(direction, roomToCreate);
     }
 
+    public void addDirection(String direction, Room previous) {
+        this.current.addDirectionRoom(direction, previous);
+    }
+
     public void move(String direction) {
         this.current = this.current.nextRoom(direction);
     }
@@ -85,14 +70,35 @@ public class DungeonBuilder {
     public void move(String direction, String fromDirection) {
         Room from = this.current;
         this.move(direction);
-        this.addDirection(fromDirection, fromDirection);
+        this.addDirection(fromDirection, from);
     }
 
     public Room create() {
+        if (level == Dungeon.GENERATION_TEST_KEY) {
+            int trueLevel = 3;
+            int roomsLeft = trueLevel;
+            Random rand = new Random();
+
+            System.out.println("Creating the Level");
+
+            while (roomsLeft != 0) {
+                int nextType = 0;
+
+                String currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
+                while (current.isDirectionUsed(currentDirection, current))
+                    currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
+
+                addDirection(currentDirection, possibleTypes[nextType]);
+
+                System.out.println(currentDirection);
+
+                String commingFrom = this.getOppositeDirection(currentDirection);
+                move(currentDirection, commingFrom);
+                roomsLeft -= 1;
+            }
+            addExit();
+        }
         return this.entrance;
     }
 
-    public Room getCurrentRoom() {
-        return this.current;
-    }
 }
