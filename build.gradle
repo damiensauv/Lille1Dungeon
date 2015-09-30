@@ -31,6 +31,6 @@ dependencies {
 
 jar {
     manifest {
-    	     attributes 'Main-Class': 'lille1.dungeon.model.Dungeon'
+    	     attributes 'Main-Class': 'lille1.dungeon.controller.Controller'
     }
 }
