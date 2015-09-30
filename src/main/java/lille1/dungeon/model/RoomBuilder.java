@@ -31,4 +31,9 @@ public class RoomBuilder {
     public Room create() {
 	return this.entrance;
     }
+
+    public Room getCurrentRoom() {
+        return this.current;
+    }
 }
+

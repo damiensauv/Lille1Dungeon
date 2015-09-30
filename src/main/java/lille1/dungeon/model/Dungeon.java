@@ -49,6 +49,8 @@ public class Dungeon {
 			int roomsLeft = trueLevel;
 			Random rand = new Random();
 
+			System.out.println("Creating the Level");
+
 			RoomBuilder.possibleDirections[0] = "north";
 			RoomBuilder.possibleDirections[1] = "south";
 			RoomBuilder.possibleDirections[2] = "east";
@@ -57,10 +59,16 @@ public class Dungeon {
 			String[] possibleTypes = {"intersection"};
 
 			while(roomsLeft!=0) {
+                Room currentRoom = builder.getCurrentRoom();
 				int nextType = 0;
 				String currentDirection = RoomBuilder.possibleDirections[rand.nextInt(RoomBuilder.possibleDirections.length-1)];
-				builder.addDirection(currentDirection, possibleTypes[nextType]);
+				while(currentRoom.getRoomMap().get(currentDirection)!=null) {
+                    currentDirection = RoomBuilder.possibleDirections[rand.nextInt(RoomBuilder.possibleDirections.length-1)];
+                }
 
+                builder.addDirection(currentDirection, possibleTypes[nextType]);
+
+				System.out.println(currentDirection + " " + roomsLeft);
 				String commingFrom = "";
 
 				if(currentDirection.equals(RoomBuilder.possibleDirections[0])) commingFrom = RoomBuilder.possibleDirections[1];
@@ -68,6 +76,7 @@ public class Dungeon {
 				if(currentDirection.equals(RoomBuilder.possibleDirections[2])) commingFrom = RoomBuilder.possibleDirections[3];
 				if(currentDirection.equals(RoomBuilder.possibleDirections[3])) commingFrom = RoomBuilder.possibleDirections[2];
 
+				System.out.println(commingFrom+ " " + roomsLeft);
 				builder.move(currentDirection, commingFrom);
 				roomsLeft-=1;
 			}

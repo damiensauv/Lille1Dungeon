@@ -28,4 +28,8 @@ public class Room {
     public String getName() {
 	return this.name;
     }
+
+    public Map<String, Room> getRoomMap() {
+        return this.rooms;
+    }
 }
