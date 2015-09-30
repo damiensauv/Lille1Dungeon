@@ -14,12 +14,28 @@ public class Dungeon {
 	return this.current.isFinished();
     }
 
-    public static void main(String[] args) {
-	RoomBuilder builder = new RoomBuilder("entrance");
-	builder.addDirection("north", "trap");
-	builder.addDirection("east", "livingRoom");
-	builder.move("east", "west");
-	builder.addDirection("north", "lille1.dungeon.model.Exit");
-	builder.move("north");
-    }
+	private Room generateDungeon(int level) {
+		if(level==0) {
+			RoomBuilder builder = new RoomBuilder("entrance");
+			builder.addDirection("north", "trap");
+			builder.addDirection("east", "livingRoom");
+			builder.move("east", "west");
+			builder.addDirection("north", "Exit");
+			builder.move("north");
+			return builder.create();
+		}
+		if(level==1) {
+			RoomBuilder builder = new RoomBuilder("entrance");
+			builder.addDirection("north", "trap");
+			builder.addDirection("east", "livingRoom");
+			builder.move("east", "west");
+			builder.addDirection("north", "Intersection");
+			builder.move("north", "south");
+			builder.addDirection("north", "Exit");
+			builder.move("north");
+			return builder.create();
+		}
+		return null;
+
+	}
 }

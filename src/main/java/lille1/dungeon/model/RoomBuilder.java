@@ -9,12 +9,12 @@ public class RoomBuilder {
     private Room entrance;
 
     public RoomBuilder(String entranceName) {
-	this.current = new Room(entranceName);
-	this.entrance = this.current;
+        this.current = new Room(entranceName);
+        this.entrance = this.current;
     }
 
     public void addDirection(String direction, String name) {
-	this.current.addDirectionRoom(direction, new Room(name));
+	    this.current.addDirectionRoom(direction, new Room(name));
     }
 
     public void move(String direction) {
@@ -22,9 +22,9 @@ public class RoomBuilder {
     }
 
     public void move(String direction, String fromDirection) {
-	Room from = this.current;
-	this.move(direction);
-	this.addDirection(fromDirection, fromDirection);
+        Room from = this.current;
+        this.move(direction);
+        this.addDirection(fromDirection, fromDirection);
     }
 
     public Room create() {

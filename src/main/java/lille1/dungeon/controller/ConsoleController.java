@@ -1,7 +1,5 @@
 package lille1.dungeon.controller;
 
-import lille1.dungeon.model.Dungeon;
-
 import java.util.Scanner;
 
 /**
@@ -11,11 +9,12 @@ public class ConsoleController implements Controller {
 
     public String askDirection() {
         Scanner scan = new Scanner(System.in);
+        System.out.print("> ");
         return scan.nextLine();
     }
     public String askDirection(String spec) {
         Scanner scan = new Scanner(System.in);
-        System.out.println(spec);
+        System.out.print(spec +"\n> ");
         return scan.nextLine();
     }
 }

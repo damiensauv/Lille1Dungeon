@@ -14,7 +14,7 @@ public interface Controller {
         Dungeon myDungeon = new Dungeon();
         Controller gameControl = new ConsoleController();
         do {
-            myDungeon.interpretCommand(gameControl.askDirection());
+            myDungeon.interpretCommand(gameControl.askDirection("Input direction :"));
         }
         while(!(myDungeon.gameIsFinished()));
     }
