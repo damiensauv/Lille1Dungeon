@@ -8,28 +8,16 @@ import java.util.Random;
  */
 public class DungeonBuilder {
 
+    private static final String[] possibleDirections = new String[4];
+    private Map<String, Room> rooms;
+    private Room current;
     private Room entrance;
 
     public DungeonBuilder(int level) {
 
-        RoomBuilder builder = new RoomBuilder("entrance");
+        this.entrance = new Room("entrance");
+        this.current = entrance;
 
-        if (level == 0) {
-            builder.addDirection("north", "trap");
-            builder.addDirection("east", "livingRoom");
-            builder.move("east", "west");
-            builder.addDirection("north", "Exit");
-            builder.move("north");
-        }
-        if (level == 1) {
-            builder.addDirection("north", "trap");
-            builder.addDirection("east", "livingRoom");
-            builder.move("east", "west");
-            builder.addDirection("north", "Intersection");
-            builder.move("north", "south");
-            builder.addDirection("north", "Exit");
-            builder.move("north");
-        }
         if (level == Dungeon.GENERATION_TEST_KEY) {
             int trueLevel = 5;
             int roomsLeft = trueLevel;
@@ -37,62 +25,53 @@ public class DungeonBuilder {
 
             System.out.println("Creating the Level");
 
-            RoomBuilder.possibleDirections[0] = "north";
-            RoomBuilder.possibleDirections[1] = "south";
-            RoomBuilder.possibleDirections[2] = "east";
-            RoomBuilder.possibleDirections[3] = "west";
-
             String[] possibleTypes = {"intersection"};
 
             while (roomsLeft != 0) {
-                Room currentRoom = builder.getCurrentRoom();
+                Room currentRoom = getCurrentRoom();
                 int nextType = 0;
-                String currentDirection = RoomBuilder.possibleDirections[rand.nextInt(RoomBuilder.possibleDirections.length - 1)];
-                while (currentRoom.getRoomMap().get(currentDirection) != null) {
-                    currentDirection = RoomBuilder.possibleDirections[rand.nextInt(RoomBuilder.possibleDirections.length - 1)];
-                }
+                String currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
 
-                builder.addDirection(currentDirection, possibleTypes[nextType]);
+                while (this.isDirectionUsed(currentDirection,currentRoom))
+                    currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
 
-                System.out.println(currentDirection + " " + roomsLeft);
-                String commingFrom = "";
+                addDirection(currentDirection, possibleTypes[nextType]);
 
-                if (currentDirection.equals(RoomBuilder.possibleDirections[0]))
-                    commingFrom = RoomBuilder.possibleDirections[1];
-                if (currentDirection.equals(RoomBuilder.possibleDirections[1]))
-                    commingFrom = RoomBuilder.possibleDirections[0];
-                if (currentDirection.equals(RoomBuilder.possibleDirections[2]))
-                    commingFrom = RoomBuilder.possibleDirections[3];
-                if (currentDirection.equals(RoomBuilder.possibleDirections[3]))
-                    commingFrom = RoomBuilder.possibleDirections[2];
+                String commingFrom = this.getOppositeDirection(currentDirection);
+
 
                 System.out.println(commingFrom + " " + roomsLeft);
-                builder.move(currentDirection, commingFrom);
+                move(currentDirection, commingFrom);
                 roomsLeft -= 1;
             }
 
-            builder.addDirection("west", "Exit");
-            builder.move("west");
+            addDirection("west", "Exit");
+            move("west");
         }
-
-        this.entrance = builder.create();
     }
 
-    public Room getEntrance() {
-        return entrance;
+    private void initDestArray() {
+        possibleDirections[0] = "north";
+        possibleDirections[1] = "south";
+        possibleDirections[2] = "east";
+        possibleDirections[3] = "west";
     }
-}
 
-class RoomBuilder {
+    private boolean isDirectionUsed(String currentDir, Room roomToCheck) {
+        return roomToCheck.getRoomMap().get(currentDir) != null;
+    }
 
-    public static final String[] possibleDirections = new String[4];
-    private Map<String, Room> rooms;
-    private Room current;
-    private Room entrance;
-
-    public RoomBuilder(String entranceName) {
-        this.current = new Room(entranceName);
-        this.entrance = this.current;
+    private String getOppositeDirection(String goingTo) {
+        String comingFrom = "";
+        if (goingTo.equals(possibleDirections[0]))
+            comingFrom = possibleDirections[1];
+        if (goingTo.equals(possibleDirections[1]))
+            comingFrom = possibleDirections[0];
+        if (goingTo.equals(possibleDirections[2]))
+            comingFrom = possibleDirections[3];
+        if (goingTo.equals(possibleDirections[3]))
+            comingFrom = possibleDirections[2];
+        return comingFrom;
     }
 
     public void addDirection(String direction, String name) {
