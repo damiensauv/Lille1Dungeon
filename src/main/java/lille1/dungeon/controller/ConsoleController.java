@@ -7,14 +7,15 @@ import java.util.Scanner;
 /**
  * Created by guilleminot on 24/09/15.
  */
-public class ConsoleController {
+public class ConsoleController implements Controller {
 
-    public static void main(String[] args) {
-        Dungeon myDungeon = new Dungeon();
+    public String askDirection() {
         Scanner scan = new Scanner(System.in);
-        do {
-            myDungeon.interpretCommand(scan.nextLine());
-        }
-        while(!(myDungeon.gameIsFinished()));
+        return scan.nextLine();
+    }
+    public String askDirection(String spec) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println(spec);
+        return scan.nextLine();
     }
 }
