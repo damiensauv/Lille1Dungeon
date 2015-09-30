@@ -10,7 +10,7 @@ public class Dungeon {
 
 	public Dungeon(int level){
         DungeonBuilder db = new DungeonBuilder(level);
-        this.current = db.getEntrance();
+        this.current = db.create();
 	}
 
     public void interpretCommand(String direction) {
