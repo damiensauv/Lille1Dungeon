@@ -17,6 +17,7 @@ public class DungeonBuilder {
 
         this.entrance = new Room("entrance");
         this.current = entrance;
+        this.initDestArray();
 
         if (level == Dungeon.GENERATION_TEST_KEY) {
             int trueLevel = 5;
