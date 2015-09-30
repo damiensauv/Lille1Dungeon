@@ -11,7 +11,7 @@ public interface Controller {
     public void notify(String not);
 
     public static void main(String[] args) {
-        Dungeon myDungeon = new Dungeon(9001);
+        Dungeon myDungeon = new Dungeon(Dungeon.GENERATION_TEST_KEY);
         Controller gameControl = new ConsoleController();
         do {
             gameControl.notify("You are in "+myDungeon.getCurrentRoom());
