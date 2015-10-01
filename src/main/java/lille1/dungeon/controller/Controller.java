@@ -15,6 +15,7 @@ public interface Controller {
         Dungeon myDungeon = new Dungeon(Dungeon.GENERATION_TEST_KEY);
         Controller gameControl = new ConsoleController();
         do {
+            gameControl.displayTray(myDungeon);
             gameControl.notify("You are in "+myDungeon.getCurrentRoom());
             gameControl.notify("Input direction :");
             myDungeon.interpretCommand(gameControl.askDirection());
