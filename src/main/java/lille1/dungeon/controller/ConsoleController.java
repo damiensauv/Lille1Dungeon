@@ -1,5 +1,8 @@
 package lille1.dungeon.controller;
 
+import lille1.dungeon.model.Dungeon;
+import lille1.dungeon.model.Room;
+
 import java.util.Scanner;
 
 /**
@@ -14,5 +17,11 @@ public class ConsoleController implements Controller {
     }
     public void notify(String spec) {
         System.out.println(spec);
+    }
+
+    @Override
+    public void displayTray(Dungeon dunToDisp) {
+        int east =0, north =0, west =0, south =0;
+        Room middleRoom = dunToDisp.getCurrentRoom();
     }
 }
