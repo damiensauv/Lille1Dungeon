@@ -17,9 +17,13 @@ public class Dungeon {
 	}
     }
 
-	public String getCurrentRoom() {
+	public String getCurrentRoomName() {
 		return this.current.getName();
 	}
+
+    public Room getCurrentRoom() {
+        return this.current();
+    }
 
     public boolean gameIsFinished() {
         return this.current.isFinished();
