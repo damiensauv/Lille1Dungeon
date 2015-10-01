@@ -3,6 +3,10 @@ package lille1.dungeon.model;
 /**
  * Created by damien on 30/09/15.
  */
+
+/*
+maybe abstract
+ */
 public class Items {
 
     public String name = "";
