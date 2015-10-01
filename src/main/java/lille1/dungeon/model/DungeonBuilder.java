@@ -25,7 +25,7 @@ public class DungeonBuilder {
     private void addExit() {
         Random rand = new Random();
         String currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
-        while (current.isDirectionUsed(currentDirection, current))
+        while (current.isDirectionUsed(currentDirection))
             currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
         addDirection(currentDirection, "Exit");
         String commingFrom = this.getOppositeDirection(currentDirection);
@@ -85,7 +85,7 @@ public class DungeonBuilder {
                 int nextType = 0;
 
                 String currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
-                while (current.isDirectionUsed(currentDirection, current))
+                while (current.isDirectionUsed(currentDirection))
                     currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
 
                 addDirection(currentDirection, possibleTypes[nextType]);

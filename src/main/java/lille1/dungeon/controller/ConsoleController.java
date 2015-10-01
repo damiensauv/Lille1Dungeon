@@ -23,5 +23,6 @@ public class ConsoleController implements Controller {
     public void displayTray(Dungeon dunToDisp) {
         int east =0, north =0, west =0, south =0;
         Room middleRoom = dunToDisp.getCurrentRoom();
+
     }
 }

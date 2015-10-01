@@ -22,7 +22,7 @@ public class Dungeon {
 	}
 
     public Room getCurrentRoom() {
-        return this.current();
+        return this.current;
     }
 
     public boolean gameIsFinished() {
