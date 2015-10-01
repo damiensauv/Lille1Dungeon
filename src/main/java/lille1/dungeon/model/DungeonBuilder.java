@@ -30,7 +30,6 @@ public class DungeonBuilder {
             currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
         addDirection(currentDirection, "Exit");
         String commingFrom = this.getOppositeDirection(currentDirection);
-        System.out.println("Exit : "+currentDirection);
     }
 
     private void initDestArray() {
@@ -79,20 +78,12 @@ public class DungeonBuilder {
             int trueLevel = 3;
             int roomsLeft = trueLevel;
             Random rand = new Random();
-
-            System.out.println("Creating the Level");
-
             while (roomsLeft != 0) {
                 int nextType = 0;
-
                 String currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
                 while (current.isDirectionUsed(currentDirection))
                     currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
-
                 addDirection(currentDirection, possibleTypes[nextType]);
-
-                System.out.println(currentDirection);
-
                 String commingFrom = this.getOppositeDirection(currentDirection);
                 move(currentDirection, commingFrom);
                 roomsLeft -= 1;

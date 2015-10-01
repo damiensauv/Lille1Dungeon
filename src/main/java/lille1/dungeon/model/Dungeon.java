@@ -12,9 +12,9 @@ public class Dungeon {
 	}
 
     public void interpretCommand(String direction) {
-	if (direction.startsWith("go ")) {
-	    this.current = current.nextRoom(direction.substring(3));
-	}
+        if (direction.startsWith("go ")) {
+            this.current = current.nextRoom(direction.substring(3));
+        }
     }
 
 	public String getCurrentRoomName() {
