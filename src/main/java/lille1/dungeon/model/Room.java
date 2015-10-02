@@ -30,7 +30,7 @@ public class Room {
 	return this.name;
     }
 
-    public boolean isDirectionUsed(String currentDir, Room roomToCheck) {
+    public boolean isDirectionUsed(String currentDir) {
         return this.rooms.get(currentDir) != null;
     }
 }
