@@ -7,7 +7,11 @@ package lille1.dungeon.model;
 /*
 maybe abstract
  */
-public class Items {
+public abstract class Items {
+
+    public final static String WEAPON = "weapon";
+    public final static String POTION = "potion";
+    public final static String UTILITY = "utility";
 
     public String name = "";
 
@@ -22,5 +26,7 @@ public class Items {
     public void setName(String name) {
         this.name = name;
     }
+
+    public abstract String getType();
 
 }

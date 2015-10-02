@@ -7,4 +7,9 @@ public class Key extends Items {
     public Key(String name) {
         super(name);
     }
+
+    @Override
+    public Type getType() {
+        return Type.Utility;
+    }
 }

@@ -3,7 +3,7 @@ package lille1.dungeon.model;
 /**
  * Created by damien on 30/09/15.
  */
-public class Hero extends Personnage {
+public class Hero extends Personage {
 
     public Inventory inventory;
 
@@ -25,8 +25,13 @@ public class Hero extends Personnage {
         this.inventory = inventory;
     }
 
+    public void useWeapon(Personage victim) {
+        super.hit(victim);
+        // prendre la premiere arme et frapper avec, si yen a pas il y a juste les degat pure
+/*        victim.setLife(victim.getLife() - this.getStrength());*/
+    }
+
     /*
-    * overide hit --> degat pure + degat de la premiere arme de son inventaire , si il y en a !
     * use Potion, Boit la premiere potion de la liste si il y en a , pas de max de vie ???
     * */
 }

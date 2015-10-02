@@ -3,7 +3,7 @@ package lille1.dungeon.model;
 /**
  * Created by damien on 30/09/15.
  */
-public class Personnage {
+public class Personage {
 
     public String name = "";
     public int life = 10;
@@ -25,11 +25,11 @@ public class Personnage {
         this.strength = strength;
     }
 
-    public Personnage(String name) {
+    public Personage(String name) {
         this.name = name;
     }
 
-    public Personnage(String name, int life, int strength) {
+    public Personage(String name, int life, int strength) {
         this.name = name;
         this.life = life;
         this.strength = strength;
@@ -46,10 +46,8 @@ public class Personnage {
     /*
     *  Le mec en parametre c celui que l'on frappe
     * */
-    public void hit(Personnage victime){
-        /*
-        *  -- this degat pure life victime
-        * */
+    public void hit(Personage victim){
+        victim.setLife(victim.getLife() - this.getStrength());
     }
 
 }
