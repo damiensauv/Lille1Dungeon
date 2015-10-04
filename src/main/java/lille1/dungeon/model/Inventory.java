@@ -43,10 +43,66 @@ public class Inventory {
             System.out.println("Inventory : ");
 
             for (Items items  : this.items){
-             System.out.println(items.print());
+                if (items instanceof Key)
+                    System.out.println(  ((Key)items).print());
+                else if (items instanceof Weapons)
+                    System.out.println(  ((Weapons)items).print());
+                else if (items instanceof Potion)
+                    System.out.println(  ((Potion)items).print());
+                else
+                    System.out.println("Bad Object");
             }
 
         }
+    }
+
+    /**
+     * get the first Weapon
+     */
+    public Weapons getFirstWeapon(){
+        for (Items items : this.items){
+            if (items instanceof Weapons){
+                System.out.println("you get machin Weapon");
+                return ((Weapons)items);
+            }
+        }
+        System.out.println("No Weapon."); // Ici ?
+        return null;
+    }
+
+    /**
+     * get the first Key
+     */
+    public Key getFirstKey(){
+        for (Items items : this.items){
+            if (items instanceof Key){
+                System.out.println("you get machin Key");
+                return ((Key)items);
+            }
+        }
+        System.out.println("No Key."); // Ici ?
+        return null;
+    }
+
+    /**
+     * get the first Potion
+     */
+    public Potion getFirstPotion(){
+        for (Items items : this.items){
+            if (items instanceof Potion){
+                System.out.println("you get machin Potion");
+                return ((Potion)items);
+            }
+        }
+        System.out.println("No Potion."); // Ici ?
+        return null;
+    }
+
+    /**
+     * delete items in params
+     */
+    public void removeItems(){
+
     }
 
 }
