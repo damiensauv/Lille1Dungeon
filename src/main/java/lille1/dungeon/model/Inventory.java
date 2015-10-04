@@ -32,18 +32,21 @@ public class Inventory {
         this.items.add(item);
     }
 
-    public List<Items> get() {
-        return null;
+    /**
+     * Print all Inventory
+     */
+    public void printInventory(){
+
+        if (this.items.size() == 0) {
+            System.out.println("This inventory is empty !");
+        } else {
+            System.out.println("Inventory : ");
+
+            for (Items items  : this.items){
+             System.out.println(items.print());
+            }
+
+        }
     }
-
-    public void remove(Items items) {
-
-    }
-
-    /*
-    *  method is empty ...
-    *  method get Nb element
-    *  method print Inventory
-    * */
 
 }
