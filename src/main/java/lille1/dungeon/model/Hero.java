@@ -3,7 +3,7 @@ package lille1.dungeon.model;
 /**
  * Created by damien on 30/09/15.
  */
-public class Hero extends Personage {
+public class Hero extends Character {
 
     public Inventory inventory;
 
@@ -25,7 +25,7 @@ public class Hero extends Personage {
         this.inventory = inventory;
     }
 
-    public void useWeapon(Personage victim) {
+    public void useWeapon(Character victim) {
         super.hit(victim);
         // prendre la premiere arme et frapper avec, si yen a pas il y a juste les degat pure
 /*        victim.setLife(victim.getLife() - this.getStrength());*/
