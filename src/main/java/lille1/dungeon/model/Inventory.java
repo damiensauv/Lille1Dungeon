@@ -101,8 +101,8 @@ public class Inventory {
     /**
      * delete items in params
      */
-    public void removeItems(){
-
+    public void removeItems(Items itemsRemove){
+        this.items.remove(itemsRemove);
     }
 
 }
