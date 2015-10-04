@@ -16,8 +16,12 @@ public class Potion  extends Items{
         return gainLife;
     }
 
-
     public void setGainLife(int gainLife) {
         this.gainLife = gainLife;
+    }
+
+    @Override
+    public String print(){
+        return super.print() + "Potion Gain life " + Integer.toString(this.getGainLife());
     }
 }

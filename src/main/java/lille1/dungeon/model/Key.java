@@ -9,7 +9,8 @@ public class Key extends Items {
     }
 
     @Override
-    public Type getType() {
-        return Type.Utility;
+    public String print(){
+        return super.print();
     }
+
 }

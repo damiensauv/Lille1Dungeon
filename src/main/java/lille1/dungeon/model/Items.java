@@ -4,14 +4,7 @@ package lille1.dungeon.model;
  * Created by damien on 30/09/15.
  */
 
-/*
-maybe abstract
- */
 public abstract class Items {
-
-    public final static String WEAPON = "weapon";
-    public final static String POTION = "potion";
-    public final static String UTILITY = "utility";
 
     public String name = "";
 
@@ -27,6 +20,8 @@ public abstract class Items {
         this.name = name;
     }
 
-    public abstract String getType();
+    public String print(){
+        return getName() + " ";
+    }
 
 }
