@@ -1,6 +1,6 @@
 package lille1.dungeon.tests;
 
-import lille1.dungeon.model.Dungeon;
+import lille1.dungeon.model.tray.Dungeon;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;

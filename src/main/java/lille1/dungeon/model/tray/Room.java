@@ -1,4 +1,4 @@
-package lille1.dungeon.model;
+package lille1.dungeon.model.tray;
 
 import java.util.Map;
 import java.util.TreeMap;

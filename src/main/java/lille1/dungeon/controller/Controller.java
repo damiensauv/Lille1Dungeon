@@ -1,6 +1,6 @@
 package lille1.dungeon.controller;
 
-import lille1.dungeon.model.Dungeon;
+import lille1.dungeon.model.tray.Dungeon;
 import lille1.dungeon.view.ConsoleDisplay;
 import lille1.dungeon.view.Display;
 

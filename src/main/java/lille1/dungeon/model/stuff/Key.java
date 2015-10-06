@@ -1,4 +1,4 @@
-package lille1.dungeon.model;
+package lille1.dungeon.model.stuff;
 
 /**
  * Created by sauvalle on 01/10/15.

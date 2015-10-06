@@ -1,6 +1,6 @@
 package lille1.dungeon.view;
 
-import lille1.dungeon.model.Dungeon;
+import lille1.dungeon.model.tray.Dungeon;
 
 /**
  * Created by Thotol on 06/10/2015.

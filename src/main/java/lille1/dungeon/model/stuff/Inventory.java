@@ -1,8 +1,7 @@
-package lille1.dungeon.model;
+package lille1.dungeon.model.stuff;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by sauvalle on 01/10/15.

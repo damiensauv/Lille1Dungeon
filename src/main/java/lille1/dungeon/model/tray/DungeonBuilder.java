@@ -1,6 +1,5 @@
-package lille1.dungeon.model;
+package lille1.dungeon.model.tray;
 
-import lille1.dungeon.*;
 import java.util.Map;
 import java.util.Random;
 

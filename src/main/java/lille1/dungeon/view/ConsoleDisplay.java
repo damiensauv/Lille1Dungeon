@@ -1,7 +1,7 @@
 package lille1.dungeon.view;
 
-import lille1.dungeon.model.Dungeon;
-import lille1.dungeon.model.Room;
+import lille1.dungeon.model.tray.Dungeon;
+import lille1.dungeon.model.tray.Room;
 
 /**
  * Created by guilleminot on 24/09/15.
