@@ -1,3 +1,5 @@
+package lille1.dungeon.tests;
+
 import lille1.dungeon.model.Dungeon;
 import org.junit.Before;
 import org.junit.Test;
@@ -5,12 +7,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class DungeonTest {
+class DungeonTest {
     protected Dungeon dungeon;
 
     @Before
     public void createDungeon() {
-        dungeon = new Dungeon();
+        dungeon = new Dungeon(Dungeon.GENERATION_TEST_KEY);
     }
 
     @Test
@@ -41,7 +43,7 @@ public class DungeonTest {
         assertEquals("trap", dungeon.getCurrentRoom());
         assertTrue(dungeon.gameIsLost());
     }
-    
+
     @Test
     public void nothingHappensWhenGoingInNonExistingDirection() {
         dungeon.interpretCommand("go west");

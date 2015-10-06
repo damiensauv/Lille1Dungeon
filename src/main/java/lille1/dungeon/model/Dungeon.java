@@ -29,5 +29,7 @@ public class Dungeon {
         return this.current.isFinished();
     }
 
+    public boolean gameIsWon() { return true;}
 
+    public boolean gameIsLost() { return false;}
 }
