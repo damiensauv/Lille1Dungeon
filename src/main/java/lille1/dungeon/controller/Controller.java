@@ -30,5 +30,7 @@ public interface Controller {
             }
         }
         while(!(myDungeon.gameIsFinished()));
+        if(myDungeon.gameIsWon()) gameControl.notify("Congratulation ! You just won !");
+        if(myDungeon.gameIsLost()) gameControl.notify("Errrr ! You just lost!");
     }
 }

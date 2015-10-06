@@ -33,4 +33,6 @@ public class Room {
     public boolean isDirectionUsed(String currentDir) {
         return this.rooms.get(currentDir) != null;
     }
+
+    public String toString() { return this.name; }
 }

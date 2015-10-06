@@ -1,5 +1,6 @@
 package lille1.dungeon.tests;
 
+import lille1.dungeon.model.commands.CommandTypes;
 import lille1.dungeon.model.tray.Dungeon;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +28,9 @@ class DungeonTest {
 
     @Test
     public void nothingHappensWhenGoingInNonExistingDirection() {
-        dungeon.interpretCommand("go ezdez");
+        CommandTypes go = CommandTypes.MOVE;
+        go.storeCmd("go ezdez");
+        dungeon.interpretCommand(go);
         assertEquals("entrance", dungeon.getCurrentRoom());
         assertFalse(dungeon.gameIsFinished());
     }
