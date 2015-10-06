@@ -1,4 +1,4 @@
-package lille1.dungeon.model.tray;
+package lille1.dungeon.model.tray.room;
 
 /**
  * Created by Thotol on 06/10/2015.

@@ -1,7 +1,9 @@
 package lille1.dungeon.model.tray;
 
-import lille1.dungeon.exceptions.MonsterNotDeadException;
 import lille1.dungeon.model.chars.Monster;
+import lille1.dungeon.model.tray.room.Exit;
+import lille1.dungeon.model.tray.room.MonsterRoom;
+import lille1.dungeon.model.tray.room.Room;
 
 import java.util.Map;
 import java.util.Random;

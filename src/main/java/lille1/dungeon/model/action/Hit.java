@@ -2,7 +2,7 @@ package lille1.dungeon.model.action;
 
 import lille1.dungeon.exceptions.InvalidActionException;
 import lille1.dungeon.model.tray.Dungeon;
-import lille1.dungeon.model.tray.MonsterRoom;
+import lille1.dungeon.model.tray.room.MonsterRoom;
 import lille1.dungeon.utils.Parser;
 
 /**

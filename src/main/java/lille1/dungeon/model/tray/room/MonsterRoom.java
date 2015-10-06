@@ -1,4 +1,4 @@
-package lille1.dungeon.model.tray;
+package lille1.dungeon.model.tray.room;
 
 import lille1.dungeon.exceptions.MonsterNotDeadException;
 import lille1.dungeon.model.chars.Hero;

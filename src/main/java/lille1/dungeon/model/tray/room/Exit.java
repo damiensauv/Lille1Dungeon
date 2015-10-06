@@ -1,4 +1,4 @@
-package lille1.dungeon.model.tray;
+package lille1.dungeon.model.tray.room;
 
 public class Exit extends Room {
 

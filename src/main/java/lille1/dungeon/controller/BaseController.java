@@ -5,7 +5,6 @@ import lille1.dungeon.exceptions.InvalidActionException;
 import lille1.dungeon.model.chars.Hero;
 import lille1.dungeon.model.action.Action;
 import lille1.dungeon.model.tray.Dungeon;
-import lille1.dungeon.model.tray.MonsterRoom;
 import lille1.dungeon.view.ConsoleDisplay;
 import lille1.dungeon.view.Display;
 
@@ -31,7 +30,7 @@ public abstract class BaseController implements Controller {
                 Action action = gameControl.openInput();
                 gameControl.notify(action.apply(myDungeon));
             } catch (CommandUnrecognizedException e) {
-                gameControl.notify("Wrong input :");
+                gameControl.notify("Wrong input");
             } catch (InvalidActionException e) {
                 gameControl.notify(e.getMessage());
             }

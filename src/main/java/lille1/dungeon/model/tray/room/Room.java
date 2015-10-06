@@ -1,4 +1,4 @@
-package lille1.dungeon.model.tray;
+package lille1.dungeon.model.tray.room;
 
 import lille1.dungeon.exceptions.MonsterNotDeadException;
 
@@ -14,7 +14,12 @@ public class Room {
 	this.name = name;
     }
 
-    protected void addDirectionRoom(String direction, Room room) {
+    /**
+     * Add an adjacent room with his direction
+     * @param direction the direction in the current room to go in the next one
+     * @param room the adjacent room
+     */
+    public void addDirectionRoom(String direction, Room room) {
 	    this.rooms.put(direction, room);
     }
 
