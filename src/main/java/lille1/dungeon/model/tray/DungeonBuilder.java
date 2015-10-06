@@ -71,7 +71,7 @@ public class DungeonBuilder {
     }
 
     public void move(String direction) {
-        this.current = this.current.builderMove(direction);
+        this.current = this.current.builderNextRoom(direction);
     }
 
     public void move(String direction, String fromDirection) {

@@ -3,6 +3,7 @@ package lille1.dungeon.model.action;
 import lille1.dungeon.exceptions.InvalidActionException;
 import lille1.dungeon.exceptions.InvalidCommand;
 import lille1.dungeon.exceptions.MonsterNotDeadException;
+import lille1.dungeon.exceptions.RoomLockedException;
 import lille1.dungeon.model.tray.Dungeon;
 import lille1.dungeon.utils.Parser;
 
@@ -36,8 +37,8 @@ public class Go extends BaseAction {
         try {
             direction = Parser.getPostCommand(userInput);
             myDungeon.nextRoom(direction);
-        } catch (MonsterNotDeadException e) {
-            throw new InvalidActionException(Go.THE_MONSTER_IS_NOT_DEAD);
+        } catch (RoomLockedException e) {
+            throw new InvalidActionException(e.getMessage());
         } catch (InvalidCommand invalidCommand) {
             throw new InvalidActionException(Go.INVALID_COMMAND);
         }

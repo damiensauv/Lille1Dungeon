@@ -1,6 +1,7 @@
 package lille1.dungeon.model.tray;
 
 import lille1.dungeon.exceptions.MonsterNotDeadException;
+import lille1.dungeon.exceptions.RoomLockedException;
 import lille1.dungeon.model.action.Action;
 import lille1.dungeon.model.chars.*;
 import lille1.dungeon.model.chars.Character;
@@ -47,7 +48,7 @@ public class Dungeon {
         return this.badassHero;
     }
 
-    public void nextRoom(String direction) throws MonsterNotDeadException {
+    public void nextRoom(String direction) throws RoomLockedException {
         this.setCurrentRoom(getCurrentRoom().nextRoom(direction));
     }
 
