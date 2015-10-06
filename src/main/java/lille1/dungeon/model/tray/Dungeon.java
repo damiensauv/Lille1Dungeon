@@ -1,5 +1,7 @@
 package lille1.dungeon.model.tray;
 
+import lille1.dungeon.model.commands.CommandTypes;
+
 public class Dungeon {
 
     public static final int GENERATION_TEST_KEY = 9001;
@@ -11,10 +13,11 @@ public class Dungeon {
         this.current = db.create();
 	}
 
-    public void interpretCommand(String direction) {
-        if (direction.startsWith("go ")) {
-            this.current = current.nextRoom(direction.substring(3));
-        }
+    public void interpretCommand(CommandTypes order) {
+        if(order == CommandTypes.MOVE)   this.current = current.nextRoom(order.getCmd());
+        //if(order == CommandTypes.USE)   this.current = current.nextRoom(order.getCmd());
+        //if(order == CommandTypes.KILL)   this.current = current.nextRoom(order.getCmd());
+
     }
 
 	public String getCurrentRoomName() {

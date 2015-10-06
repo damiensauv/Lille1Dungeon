@@ -1,5 +1,6 @@
 package lille1.dungeon.controller;
 
+import lille1.dungeon.model.commands.CommandTypes;
 import lille1.dungeon.model.tray.Dungeon;
 import lille1.dungeon.view.ConsoleDisplay;
 import lille1.dungeon.view.Display;
@@ -9,7 +10,7 @@ import lille1.dungeon.view.Display;
  */
 public interface Controller {
 
-    public String askDirection();
+    public CommandTypes openInput() throws ConsoleController.CommandUnrecognizedException;
     public void notify(String not);
 
     public static void main(String[] args) {
@@ -20,7 +21,13 @@ public interface Controller {
             gameDisplay.displayTray(myDungeon);
             gameControl.notify("You are in "+myDungeon.getCurrentRoom());
             gameControl.notify("Input direction :");
-            myDungeon.interpretCommand(gameControl.askDirection());
+            CommandTypes ct;
+            try {
+                ct = gameControl.openInput();
+                myDungeon.interpretCommand(ct);
+            } catch (ConsoleController.CommandUnrecognizedException e) {
+                gameControl.notify("Wrong input :");
+            }
         }
         while(!(myDungeon.gameIsFinished()));
     }

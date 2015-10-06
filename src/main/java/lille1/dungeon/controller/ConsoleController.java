@@ -1,4 +1,6 @@
 package lille1.dungeon.controller;
+import lille1.dungeon.model.commands.CommandTypes;
+
 import java.util.Scanner;
 
 /**
@@ -6,12 +8,27 @@ import java.util.Scanner;
  */
 public class ConsoleController implements Controller {
 
-    public String askDirection() {
+    public CommandTypes openInput() throws CommandUnrecognizedException {
         Scanner scan = new Scanner(System.in);
         System.out.print("> ");
-        return scan.nextLine();
+        CommandTypes commandType = null;
+
+        String currentCommand = scan.nextLine();
+        if (currentCommand.startsWith("go ")) commandType = CommandTypes.MOVE;
+        if (currentCommand.startsWith("use ")) commandType = CommandTypes.USE;
+        if (currentCommand.startsWith("hit ")) commandType = CommandTypes.KILL;
+
+        if (commandType == null) throw new CommandUnrecognizedException();
+
+        commandType.storeCmd(currentCommand);
+
+        return commandType;
+
     }
     public void notify(String spec) {
         System.out.println(spec);
+    }
+
+    class CommandUnrecognizedException extends Exception {
     }
 }
