@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class ConsoleController extends BaseController {
 
     Action[] actions = {
-            new Go(""),
-            new Hit("")
+            new Go(),
+            new Hit()
     };
 
     public Action openInput() throws CommandUnrecognizedException {

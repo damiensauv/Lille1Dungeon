@@ -18,6 +18,10 @@ public class Hit extends BaseAction {
         super(userInput);
     }
 
+    public Hit() {
+        super("");
+    }
+
     @Override
     public boolean interpreteCommand(String string) {
         userInput = string;
