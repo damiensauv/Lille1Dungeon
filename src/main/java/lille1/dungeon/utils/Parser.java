@@ -29,6 +29,7 @@ public class Parser {
      * @exception InvalidCommand if no post command exists
      */
     public static String getPostCommand(String line) throws InvalidCommand {
+        line = cleanString(line);
         int i = line.indexOf(' ');
         if (i == -1) {
             throw new InvalidCommand();
