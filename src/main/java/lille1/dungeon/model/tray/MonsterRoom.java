@@ -17,9 +17,16 @@ public class MonsterRoom extends Room {
         this.monsterInside = badguy;
     }
 
+    /**
+     * override Room.nextRoom to throw exception if the monster is not dead
+     * @param direction the direction
+     * @return the next room
+     * @throws MonsterNotDeadException if the monster is not dead
+     */
+    @Override
     public Room nextRoom(String direction) throws RoomLockedException {
         if(!(this.monsterInside.isDead())) throw new MonsterNotDeadException();
-        return rooms.get(direction);
+        return super.nextRoom(direction);
     }
 
     public Monster getMonster() {
