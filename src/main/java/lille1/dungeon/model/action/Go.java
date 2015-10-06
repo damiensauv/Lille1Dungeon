@@ -6,9 +6,6 @@ import lille1.dungeon.exceptions.MonsterNotDeadException;
 import lille1.dungeon.model.tray.Dungeon;
 import lille1.dungeon.utils.Parser;
 
-import javax.rmi.CORBA.Util;
-import java.awt.*;
-
 /**
  * Created by nsvir on 06/10/15.
  * n.svirchevsky@gmail.com
@@ -16,8 +13,8 @@ import java.awt.*;
 public class Go extends BaseAction {
 
     private static final String PREFIX = "go";
-    private static final String MonsterNotDead = "The monster is not dead";
-    private static final String InvalidCommand = "Invalid command";
+    private static final String THE_MONSTER_IS_NOT_DEAD = "The monster is not dead";
+    private static final String INVALID_COMMAND = "Invalid command";
 
     public Go(String userInput) {
         super(userInput);
@@ -40,9 +37,9 @@ public class Go extends BaseAction {
             direction = Parser.getPostCommand(userInput);
             myDungeon.nextRoom(direction);
         } catch (MonsterNotDeadException e) {
-            throw new InvalidActionException(Go.MonsterNotDead);
+            throw new InvalidActionException(Go.THE_MONSTER_IS_NOT_DEAD);
         } catch (InvalidCommand invalidCommand) {
-            throw new InvalidActionException(Go.InvalidCommand);
+            throw new InvalidActionException(Go.INVALID_COMMAND);
         }
         return "You have successfully been in " + myDungeon.getCurrentRoomName();
     }

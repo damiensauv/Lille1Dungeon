@@ -12,7 +12,7 @@ import lille1.dungeon.utils.Parser;
 public class Hit extends BaseAction {
 
     private static final String PREFIX = "hit";
-    private static final String NotAMonsterRoom = "THis is not a monster room";
+    private static final String THIS_IS_NOT_A_MONSTER_ROOM = "THis is not a monster room";
 
     public Hit(String userInput) {
         super(userInput);
@@ -35,7 +35,7 @@ public class Hit extends BaseAction {
             if(monsterRoom.getMonster()!=null) {
                 monsterRoom.getMonster().hit(myDungeon.getHero());
             }
-        } else throw new InvalidActionException(Hit.NotAMonsterRoom);
+        } else throw new InvalidActionException(Hit.THIS_IS_NOT_A_MONSTER_ROOM);
         return "Hit!!";
     }
 
