@@ -5,8 +5,6 @@ import lille1.dungeon.model.action.Action;
 import lille1.dungeon.model.action.Go;
 import lille1.dungeon.model.action.Hit;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -26,7 +24,7 @@ public class ConsoleController extends BaseController {
         Action result = null;
         String line = scan.nextLine();
         for (Action action: this.actions) {
-            if (action.interpreteCommand(line)) {
+            if (action.interpretCommand(line)) {
                 result = action;
                 break;
             }

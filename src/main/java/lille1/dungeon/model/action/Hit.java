@@ -23,7 +23,7 @@ public class Hit extends BaseAction {
     }
 
     @Override
-    public boolean interpreteCommand(String string) {
+    public boolean interpretCommand(String string) {
         userInput = string;
         return Parser.isPrefix(Hit.PREFIX, string);
     }

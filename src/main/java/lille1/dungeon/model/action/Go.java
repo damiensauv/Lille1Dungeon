@@ -26,7 +26,7 @@ public class Go extends BaseAction {
     }
 
     @Override
-    public boolean interpreteCommand(String string) {
+    public boolean interpretCommand(String string) {
         userInput = string;
         return Parser.isPrefix(Go.PREFIX, string);
     }

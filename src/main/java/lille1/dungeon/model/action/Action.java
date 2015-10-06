@@ -14,7 +14,7 @@ public interface Action {
      * @param string the user input
      * @return <code>true</code> if the action is concerned by the user input
      */
-    boolean interpreteCommand(String string);
+    boolean interpretCommand(String string);
 
     /**
      * apply the action to the dungeon
