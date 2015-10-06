@@ -61,7 +61,7 @@ public class DungeonBuilder {
         if (name.equals("exit") || name.equals("Exit")) roomToCreate = new Exit();
         else roomToCreate = new Room(name);
         if (name.equals("monster")) {
-            roomToCreate = new MonsterRoom(new Monster("bizuth"), "rummmmeenn");
+            roomToCreate = new MonsterRoom(new Monster("bizuth", 100, 1), "rummmmeenn");
         }
         this.current.addDirectionRoom(direction, roomToCreate);
     }

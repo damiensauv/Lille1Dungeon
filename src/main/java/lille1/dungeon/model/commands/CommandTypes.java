@@ -5,7 +5,7 @@ package lille1.dungeon.model.commands;
  */
 public enum CommandTypes {
 
-    MOVE(3), USE(4), KILL(4);
+    MOVE(3), USE(4), KILL(3);
 
     private final int idSize;
     private String command;

@@ -1,5 +1,6 @@
 package lille1.dungeon.model.chars;
 
+import lille1.dungeon.model.stuff.Inventory;
 import lille1.dungeon.model.stuff.Items;
 
 import java.util.Random;
@@ -16,12 +17,14 @@ public class Monster extends Character {
         this.name = name;
         this.life = MONSTER_DEFAULT_LIFE;
         this.strength = MONSTER_DEFAULT_STRENGTH;
+        this.inventory = new Inventory();
     }
 
     public Monster(String name, int life, int strength) {
         this.life = life;
         this.name = name;
         this.strength = strength;
+        this.inventory = new Inventory();
     }
 
     @Override

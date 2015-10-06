@@ -32,7 +32,9 @@ public class MonsterRoom extends Room {
 
     public void processFight(Hero badassHero) {
         badassHero.hit(this.monsterInside);
-        if(this.monsterInside.isDead()) badassHero.lootObject(this.monsterInside.dropObject());
-        this.monsterInside = null;
+        if(this.monsterInside.isDead()) {
+            badassHero.lootObject(this.monsterInside.dropObject());
+            this.monsterInside = null;
+        }
     }
 }

@@ -13,11 +13,17 @@ public class Hero extends Character {
     public static final int HERO_BONUS_OVER_ALL_CHARS = 2;
 
     public Hero(String name) {
-        this.setLife(HERO_DEFAULT_LIFE);
-        this.setStrength(HERO_DEFAULT_STRENGTH);
+        this.name = name;
+        this.life = HERO_DEFAULT_LIFE;
+        this.strength = HERO_DEFAULT_STRENGTH;
+        this.inventory = new Inventory();
     }
 
     public Hero(String name, int life, int strength) {
+        this.life = life;
+        this.name = name;
+        this.strength = strength;
+        this.inventory = new Inventory();
     }
 
     public Inventory getInventory() {

@@ -19,7 +19,7 @@ public class ConsoleController implements Controller {
         String currentCommand = scan.nextLine();
         if (currentCommand.startsWith("go ")) commandType = CommandTypes.MOVE;
         if (currentCommand.startsWith("use ")) commandType = CommandTypes.USE;
-        if (currentCommand.startsWith("hit ")) commandType = CommandTypes.KILL;
+        if (currentCommand.equals("hit")) commandType = CommandTypes.KILL;
 
         if (commandType == null) throw new CommandUnrecognizedException();
 

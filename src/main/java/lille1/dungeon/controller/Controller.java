@@ -30,6 +30,7 @@ public interface Controller {
         do {
             gameDisplay.displayTray(myDungeon);
             gameControl.notify("You are in " + myDungeon.getCurrentRoom());
+            gameControl.notify("My life " + myDungeon.getHero().getLife());
             gameControl.notify("Input direction :");
             CommandTypes ct;
             try {
@@ -47,7 +48,7 @@ public interface Controller {
             }
             if (myDungeon.getCurrentRoom() instanceof MonsterRoom) {
                 MonsterRoom mr = (MonsterRoom) myDungeon.getCurrentRoom();
-                mr.getMonster().hit(myDungeon.getHero());
+                if(mr.getMonster()!=null) mr.getMonster().hit(myDungeon.getHero());
             }
         }
         while (!(myDungeon.gameIsFinished()));
