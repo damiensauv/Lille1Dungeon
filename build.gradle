@@ -17,6 +17,11 @@ repositories {
     jcenter()
 }
 
+task run(type:Exec, dependsOn:build) {
+    commandLine 'java',  '-jar', './build/libs/Lille1Dungeon.jar'
+    standardInput = System.in
+}
+
 // In this section you declare the dependencies for your production and test code
 dependencies {
 

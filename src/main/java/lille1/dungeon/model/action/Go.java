@@ -24,7 +24,7 @@ public class Go extends BaseAction {
     }
 
     public Go() {
-        
+
     }
 
     @Override
