@@ -1,31 +1,38 @@
 package lille1.dungeon.controller;
 
-import lille1.dungeon.model.commands.CommandTypes;
 import lille1.dungeon.exceptions.*;
+import lille1.dungeon.model.action.Action;
+import lille1.dungeon.model.action.Go;
+import lille1.dungeon.model.action.Hit;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
  * Created by guilleminot on 24/09/15.
  */
-public class ConsoleController implements Controller {
+public class ConsoleController extends BaseController {
 
-    public CommandTypes openInput() throws CommandUnrecognizedException {
+    Action[] actions = {
+            new Go(""),
+            new Hit("")
+    };
+
+    public Action openInput() throws CommandUnrecognizedException {
         Scanner scan = new Scanner(System.in);
         System.out.println("Possible commands 'go X' 'hit' ");
         System.out.print("> ");
-        CommandTypes commandType = null;
-
-        String currentCommand = scan.nextLine();
-        if (currentCommand.startsWith("go ")) commandType = CommandTypes.MOVE;
-        if (currentCommand.startsWith("use ")) commandType = CommandTypes.USE;
-        if (currentCommand.equals("hit")) commandType = CommandTypes.KILL;
-
-        if (commandType == null) throw new CommandUnrecognizedException();
-
-        commandType.storeCmd(currentCommand);
-
-        return commandType;
+        Action result = null;
+        String line = scan.nextLine();
+        for (Action action: this.actions) {
+            if (action.interpreteCommand(line)) {
+                result = action;
+                break;
+            }
+        }
+        if (result == null) throw new CommandUnrecognizedException();
+        return result.newInstance();
 
     }
 

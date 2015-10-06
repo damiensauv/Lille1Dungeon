@@ -3,6 +3,7 @@ package lille1.dungeon.model.commands;
 /**
  * Created by Thotol on 06/10/2015.
  */
+@Deprecated
 public enum CommandTypes {
 
     MOVE(3), USE(4), KILL(3);

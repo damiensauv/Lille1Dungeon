@@ -19,8 +19,9 @@ public class Room {
     }
 
     public Room nextRoom(String direction) throws MonsterNotDeadException {
-        if(rooms.get(direction)==null) return this;
-	    return rooms.get(direction);
+        Room room = rooms.get(direction);
+        if(room ==null) return this;
+	    return room;
     }
 
     public Room builderMove(String direction) {
