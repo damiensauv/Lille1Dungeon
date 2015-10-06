@@ -16,7 +16,7 @@ public class MonsterRoom extends Room {
     }
 
     public Room nextRoom(String direction) throws MonsterNotDeadException {
-        if(this.monsterInside.isDead()) throw new MonsterNotDeadException();
+        if (this.monsterInside.isDead()) throw new MonsterNotDeadException();
         return rooms.get(direction);
     }
 

@@ -20,7 +20,7 @@ public abstract class Items {
         this.name = name;
     }
 
-    public String print(){
+    public String print() {
         return getName() + " ";
     }
 

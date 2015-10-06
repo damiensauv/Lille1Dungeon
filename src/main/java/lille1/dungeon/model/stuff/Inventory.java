@@ -34,20 +34,20 @@ public class Inventory {
     /**
      * Print all Inventory
      */
-    public void printInventory(){
+    public void printInventory() {
 
         if (this.items.size() == 0) {
             System.out.println("This inventory is empty !");
         } else {
             System.out.println("Inventory : ");
 
-            for (Items items  : this.items){
+            for (Items items : this.items) {
                 if (items instanceof Key)
-                    System.out.println(  ((Key)items).print());
+                    System.out.println(((Key) items).print());
                 else if (items instanceof Weapons)
-                    System.out.println(  ((Weapons)items).print());
+                    System.out.println(((Weapons) items).print());
                 else if (items instanceof Potion)
-                    System.out.println(  ((Potion)items).print());
+                    System.out.println(((Potion) items).print());
                 else
                     System.out.println("Bad Object");
             }
@@ -58,11 +58,11 @@ public class Inventory {
     /**
      * get the first Weapon
      */
-    public Weapons getFirstWeapon(){
-        for (Items items : this.items){
-            if (items instanceof Weapons){
+    public Weapons getFirstWeapon() {
+        for (Items items : this.items) {
+            if (items instanceof Weapons) {
                 System.out.println("you get machin Weapon");
-                return ((Weapons)items);
+                return ((Weapons) items);
             }
         }
         System.out.println("No Weapon."); // Ici ?
@@ -72,11 +72,11 @@ public class Inventory {
     /**
      * get the first Key
      */
-    public Key getFirstKey(){
-        for (Items items : this.items){
-            if (items instanceof Key){
+    public Key getFirstKey() {
+        for (Items items : this.items) {
+            if (items instanceof Key) {
                 System.out.println("you get machin Key");
-                return ((Key)items);
+                return ((Key) items);
             }
         }
         System.out.println("No Key."); // Ici ?
@@ -86,11 +86,11 @@ public class Inventory {
     /**
      * get the first Potion
      */
-    public Potion getFirstPotion(){
-        for (Items items : this.items){
-            if (items instanceof Potion){
+    public Potion getFirstPotion() {
+        for (Items items : this.items) {
+            if (items instanceof Potion) {
                 System.out.println("you get machin Potion");
-                return ((Potion)items);
+                return ((Potion) items);
             }
         }
         System.out.println("No Potion."); // Ici ?
@@ -100,7 +100,7 @@ public class Inventory {
     /**
      * delete items in params
      */
-    public void removeItems(Items itemsRemove){
+    public void removeItems(Items itemsRemove) {
         this.items.remove(itemsRemove);
     }
 

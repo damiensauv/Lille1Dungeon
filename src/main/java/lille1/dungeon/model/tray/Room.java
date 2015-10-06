@@ -18,10 +18,15 @@ public class Room {
 	    this.rooms.put(direction, room);
     }
 
-    public Room nextRoom(String direction) throws MonsterRoom.MonsterNotDeadException, MonsterNotDeadException {
+    public Room nextRoom(String direction) throws MonsterNotDeadException {
         if(rooms.get(direction)==null) return this;
 	    return rooms.get(direction);
     }
+
+    public Room builderMove(String direction) {
+        if(rooms.get(direction)==null) return this;
+        return rooms.get(direction);
+}
 
     public boolean isFinished() {
 	    return false;

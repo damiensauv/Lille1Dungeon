@@ -18,6 +18,8 @@ public enum CommandTypes {
         this.command = cmd.substring(this.idSize);
     }
 
-    public String getCmd() { return this.command; }
+    public String getCmd() {
+        return this.command;
+    }
 
 }

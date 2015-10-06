@@ -28,7 +28,7 @@ public class Weapons extends Items {
     }
 
     @Override
-    public String print(){
+    public String print() {
         return super.print() + "Weapon damage " + Integer.toString(this.getDamage());
     }
 }

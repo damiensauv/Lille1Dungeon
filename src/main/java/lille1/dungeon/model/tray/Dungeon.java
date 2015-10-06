@@ -13,26 +13,25 @@ public class Dungeon {
     private Room current;
     private Hero badassHero;
 
-	public Dungeon(int level, Hero h){
+    public Dungeon(int level, Hero h) {
         DungeonBuilder db = new DungeonBuilder(level);
         this.current = db.create();
         this.badassHero = h;
-	}
+    }
 
     public void interpretCommand(CommandTypes order) throws MonsterNotDeadException, RoomIsNotAMonsterRoomException {
-        if(order == CommandTypes.MOVE)   this.current = current.nextRoom(order.getCmd());
+        if (order == CommandTypes.MOVE) this.current = current.nextRoom(order.getCmd());
         //if(order == CommandTypes.USE)   this.current = current.nextRoom(order.getCmd());
-        if(order == CommandTypes.KILL) {
-            if(this.current instanceof MonsterRoom) {
+        if (order == CommandTypes.KILL) {
+            if (this.current instanceof MonsterRoom) {
 
-            }
-            else throw new RoomIsNotAMonsterRoomException();
+            } else throw new RoomIsNotAMonsterRoomException();
         }
     }
 
-	public String getCurrentRoomName() {
-		return this.current.getName();
-	}
+    public String getCurrentRoomName() {
+        return this.current.getName();
+    }
 
     public Room getCurrentRoom() {
         return this.current;
@@ -42,9 +41,13 @@ public class Dungeon {
         return this.current.isFinished();
     }
 
-    public boolean gameIsWon() { return true;}
+    public boolean gameIsWon() {
+        return true;
+    }
 
-    public boolean gameIsLost() { return false;}
+    public boolean gameIsLost() {
+        return false;
+    }
 
     public Character getHero() {
         return this.badassHero;

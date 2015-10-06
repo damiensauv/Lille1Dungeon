@@ -9,7 +9,7 @@ public class Key extends Items {
     }
 
     @Override
-    public String print(){
+    public String print() {
         return super.print();
     }
 

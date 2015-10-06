@@ -1,4 +1,5 @@
 package lille1.dungeon.controller;
+
 import lille1.dungeon.model.commands.CommandTypes;
 import lille1.dungeon.exceptions.*;
 
@@ -26,6 +27,7 @@ public class ConsoleController implements Controller {
         return commandType;
 
     }
+
     public void notify(String spec) {
         System.out.println(spec);
     }
@@ -39,5 +41,5 @@ public class ConsoleController implements Controller {
         return currentCommand;
 
     }
-    }
+}
 

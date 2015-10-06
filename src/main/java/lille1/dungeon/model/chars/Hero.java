@@ -18,7 +18,8 @@ public class Hero extends Character {
         this.setStrength(HERO_DEFAULT_STRENGTH);
     }
 
-    public Hero(String name, int life, int strength){}
+    public Hero(String name, int life, int strength) {
+    }
 
     public Inventory getInventory() {
         return inventory;
@@ -64,8 +65,8 @@ public class Hero extends Character {
     @Override
     public void hit(Character victim) {
         int vStrength = victim.getStrength();
-        int mStrength = this.getStrength()*Hero.HERO_BONUS_OVER_ALL_CHARS;
-        if(vStrength>=mStrength) return;
+        int mStrength = this.getStrength() * Hero.HERO_BONUS_OVER_ALL_CHARS;
+        if (vStrength >= mStrength) return;
         int strDif = mStrength - vStrength;
         int vLife = victim.getLife();
         vLife -= strDif;
@@ -74,6 +75,6 @@ public class Hero extends Character {
 
     @Override
     public boolean isDead() {
-        return (this.getLife()<=0);
+        return (this.getLife() <= 0);
     }
 }

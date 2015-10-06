@@ -55,7 +55,7 @@ public class DungeonBuilder {
 
     public void addDirection(String direction, String name) {
         Room roomToCreate;
-        if(name.equals("exit")||name.equals("Exit")) roomToCreate = new Exit();
+        if (name.equals("exit") || name.equals("Exit")) roomToCreate = new Exit();
         else roomToCreate = new Room(name);
         this.current.addDirectionRoom(direction, roomToCreate);
     }
@@ -65,7 +65,7 @@ public class DungeonBuilder {
     }
 
     public void move(String direction) {
-        this.current = this.current.nextRoom(direction);
+        this.current = this.current.builderMove(direction);
     }
 
     public void move(String direction, String fromDirection) {

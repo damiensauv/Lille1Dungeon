@@ -51,7 +51,7 @@ public class Monster extends Character {
     public void hit(Character victim) {
         int vStrength = victim.getStrength();
         int mStrength = this.getStrength();
-        if(vStrength>=mStrength) return;
+        if (vStrength >= mStrength) return;
         int strDif = mStrength - vStrength;
         int vLife = victim.getLife();
         vLife -= strDif;
@@ -60,6 +60,6 @@ public class Monster extends Character {
 
     @Override
     public boolean isDead() {
-        return (this.getLife()<=0);
+        return (this.getLife() <= 0);
     }
 }

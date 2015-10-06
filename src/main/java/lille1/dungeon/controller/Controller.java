@@ -15,10 +15,11 @@ import lille1.dungeon.view.Display;
  */
 public interface Controller {
 
-    public CommandTypes openInput() throws CommandUnrecognizedException, CommandUnrecognizedException;
-    public void notify(String not);
+    CommandTypes openInput() throws CommandUnrecognizedException;
 
-    public static void main(String[] args) {
+    void notify(String not);
+
+    static void main(String[] args) {
         Controller gameControl = new ConsoleController();
         Display gameDisplay = new ConsoleDisplay();
 
@@ -28,7 +29,7 @@ public interface Controller {
         Dungeon myDungeon = new Dungeon(Dungeon.GENERATION_TEST_KEY, ken);
         do {
             gameDisplay.displayTray(myDungeon);
-            gameControl.notify("You are in "+myDungeon.getCurrentRoom());
+            gameControl.notify("You are in " + myDungeon.getCurrentRoom());
             gameControl.notify("Input direction :");
             CommandTypes ct;
             try {
@@ -37,22 +38,22 @@ public interface Controller {
                     myDungeon.interpretCommand(ct);
                 } catch (MonsterNotDeadException e) {
                     gameControl.notify("You have to kill the monster !");
-                } catch (RoomIsNotAMonsterRoomException e)  {
+                } catch (RoomIsNotAMonsterRoomException e) {
                     gameControl.notify("There is no monster to kill you dumbass !");
                 }
 
             } catch (CommandUnrecognizedException e) {
                 gameControl.notify("Wrong input :");
             }
-            if(myDungeon.getCurrentRoom() instanceof MonsterRoom) {
+            if (myDungeon.getCurrentRoom() instanceof MonsterRoom) {
                 MonsterRoom mr = (MonsterRoom) myDungeon.getCurrentRoom();
                 mr.getMonster().hit(myDungeon.getHero());
             }
         }
-        while(!(myDungeon.gameIsFinished()));
-        if(myDungeon.gameIsWon()) gameControl.notify("Congratulation ! You just won !");
-        if(myDungeon.gameIsLost()) gameControl.notify("Errrr ! You just lost!");
+        while (!(myDungeon.gameIsFinished()));
+        if (myDungeon.gameIsWon()) gameControl.notify("Congratulation ! You just won !");
+        if (myDungeon.gameIsLost()) gameControl.notify("Errrr ! You just lost!");
     }
 
-    public String getText();
+    String getText();
 }

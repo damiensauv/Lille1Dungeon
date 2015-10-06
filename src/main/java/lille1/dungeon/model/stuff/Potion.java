@@ -3,7 +3,7 @@ package lille1.dungeon.model.stuff;
 /**
  * Created by sauvalle on 01/10/15.
  */
-public class Potion  extends Items{
+public class Potion extends Items {
 
     public int gainLife = 0;
 
@@ -21,7 +21,7 @@ public class Potion  extends Items{
     }
 
     @Override
-    public String print(){
+    public String print() {
         return super.print() + "Potion Gain life " + Integer.toString(this.getGainLife());
     }
 }
