@@ -5,9 +5,12 @@ package lille1.dungeon.model.chars;
  */
 public class Monster extends Character {
 
+    public static final int MONSTER_DEFAULT_LIFE = 30;
+    public static final int MONSTER_DEFAULT_STRENGTH = 10;
+
     public Monster(String name) {
-        this.setLife(30);
-        this.setStrength(10);
+        this.setLife(MONSTER_DEFAULT_LIFE);
+        this.setStrength(MONSTER_DEFAULT_STRENGTH);
     }
 
     public Monster(String name, int life, int strength) {
@@ -52,5 +55,6 @@ public class Monster extends Character {
         int strDif = mStrength - vStrength;
         int vLife = victim.getLife();
         vLife -= strDif;
+        victim.setLife(vLife);
     }
 }
