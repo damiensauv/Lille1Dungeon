@@ -26,27 +26,8 @@ class DungeonTest {
     }
 
     @Test
-    public void gameWonWhenGoingNorth() {
-        dungeon.interpretCommand("go north");
-        assertEquals("intersection", dungeon.getCurrentRoom());
-        assertFalse(dungeon.gameIsWon());
-        dungeon.interpretCommand("go north");
-        assertEquals("exit", dungeon.getCurrentRoom());
-        assertTrue(dungeon.gameIsWon());
-    }
-
-    @Test
-    public void gameLostWhenGoingToTrap() {
-        dungeon.interpretCommand("go north");
-        assertFalse(dungeon.gameIsLost());
-        dungeon.interpretCommand("go west");
-        assertEquals("trap", dungeon.getCurrentRoom());
-        assertTrue(dungeon.gameIsLost());
-    }
-
-    @Test
     public void nothingHappensWhenGoingInNonExistingDirection() {
-        dungeon.interpretCommand("go west");
+        dungeon.interpretCommand("go ezdez");
         assertEquals("entrance", dungeon.getCurrentRoom());
         assertFalse(dungeon.gameIsFinished());
     }

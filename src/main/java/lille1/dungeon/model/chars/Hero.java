@@ -2,12 +2,10 @@ package lille1.dungeon.model.chars;
 
 import lille1.dungeon.model.stuff.Inventory;
 
-import java.lang.*;
-
 /**
  * Created by damien on 30/09/15.
  */
-public class Hero extends java.lang.Character {
+public class Hero extends Character {
 
     public Inventory inventory;
 
@@ -60,7 +58,7 @@ public class Hero extends java.lang.Character {
     }
 
     @Override
-    public void hit(java.lang.Character victim) {
+    public void hit(Character victim) {
 
     }
 }

@@ -1,11 +1,9 @@
 package lille1.dungeon.model.chars;
 
-import java.lang.*;
-
 /**
  * Created by damien on 30/09/15.
  */
-public class Monster extends java.lang.Character {
+public class Monster extends Character {
 
     public Monster(String name) {
         this.setLife(30);
@@ -18,36 +16,41 @@ public class Monster extends java.lang.Character {
 
     @Override
     public int getLife() {
-        return 0;
+        return this.life;
     }
 
     @Override
     public void setLife(int life) {
-
+        this.life = life;
     }
 
     @Override
     public int getStrength() {
-        return 0;
+        return this.strength;
     }
 
     @Override
     public void setStrength(int strength) {
-
+        this.strength = strength;
     }
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public void setName(String name) {
-
+        this.name = name;
     }
 
     @Override
-    public void hit(java.lang.Character victim) {
-
+    public void hit(Character victim) {
+        int vStrength = victim.getStrength();
+        int mStrength = this.getStrength();
+        if(vStrength>=mStrength) return;
+        int strDif = mStrength - vStrength;
+        int vLife = victim.getLife();
+        vLife -= strDif;
     }
 }

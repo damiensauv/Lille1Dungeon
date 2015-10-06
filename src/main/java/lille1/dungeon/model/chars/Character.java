@@ -5,9 +5,9 @@ package lille1.dungeon.model.chars;
  */
 public abstract class Character {
 
-    public String name;
-    public int life;
-    public int strength;
+    protected String name;
+    protected int life;
+    protected int strength;
 
     public abstract int getLife();
 
@@ -22,5 +22,4 @@ public abstract class Character {
     public abstract void setName(String name);
 
     public abstract void hit(Character victim);
-
 }
