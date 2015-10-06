@@ -11,4 +11,8 @@ public abstract class BaseAction implements Action {
     public BaseAction(String userInput) {
         this.userInput = userInput;
     }
+
+    public BaseAction() {
+
+    }
 }

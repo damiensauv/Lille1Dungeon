@@ -23,6 +23,10 @@ public class Go extends BaseAction {
         super(userInput);
     }
 
+    public Go() {
+        
+    }
+
     @Override
     public boolean interpreteCommand(String string) {
         userInput = string;

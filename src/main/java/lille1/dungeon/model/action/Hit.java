@@ -19,7 +19,7 @@ public class Hit extends BaseAction {
     }
 
     public Hit() {
-        super("");
+        super();
     }
 
     @Override
