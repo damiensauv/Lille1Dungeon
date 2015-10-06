@@ -63,7 +63,11 @@ public class DungeonBuilder {
     }
 
     public void move(String direction) {
-        this.current = this.current.nextRoom(direction);
+        try {
+            this.current = this.current.nextRoom(direction);
+        } catch (MonsterRoom.MonsterNotDeadException e) {
+            e.printStackTrace();
+        }
     }
 
     public void move(String direction, String fromDirection) {

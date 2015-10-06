@@ -71,4 +71,9 @@ public class Hero extends Character {
         vLife -= strDif;
         victim.setLife(vLife);
     }
+
+    @Override
+    public boolean isDead() {
+        return (this.getLife()<=0);
+    }
 }

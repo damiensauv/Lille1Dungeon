@@ -1,19 +1,21 @@
 package lille1.dungeon.tests;
 
+import lille1.dungeon.model.chars.Hero;
 import lille1.dungeon.model.commands.CommandTypes;
 import lille1.dungeon.model.tray.Dungeon;
+import lille1.dungeon.model.tray.MonsterRoom;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 class DungeonTest {
     protected Dungeon dungeon;
 
     @Before
     public void createDungeon() {
-        dungeon = new Dungeon(Dungeon.GENERATION_TEST_KEY);
+        Hero h = new Hero("test");
+        dungeon = new Dungeon(Dungeon.GENERATION_TEST_KEY, h);
     }
 
     @Test
@@ -30,7 +32,11 @@ class DungeonTest {
     public void nothingHappensWhenGoingInNonExistingDirection() {
         CommandTypes go = CommandTypes.MOVE;
         go.storeCmd("go ezdez");
-        dungeon.interpretCommand(go);
+        try {
+            dungeon.interpretCommand(go);
+        } catch (MonsterRoom.MonsterNotDeadException e) {
+            e.printStackTrace();
+        }
         assertEquals("entrance", dungeon.getCurrentRoom());
         assertFalse(dungeon.gameIsFinished());
     }

@@ -5,9 +5,8 @@ import java.util.TreeMap;
 
 public class Room {
 
-    private String name;
-    private Map<String, Room> rooms = new TreeMap<String, Room>() {
-    };
+    protected String name;
+    protected Map<String, Room> rooms = new TreeMap<>();
 
     public Room(String name) {
 	this.name = name;
@@ -17,17 +16,17 @@ public class Room {
 	    this.rooms.put(direction, room);
     }
 
-    public Room nextRoom(String direction) {
+    public Room nextRoom(String direction) throws MonsterRoom.MonsterNotDeadException {
         if(rooms.get(direction)==null) return this;
 	    return rooms.get(direction);
     }
 
     public boolean isFinished() {
-	return false;
+	    return false;
     }
 
     public String getName() {
-	return this.name;
+	    return this.name;
     }
 
     public boolean isDirectionUsed(String currentDir) {
@@ -35,4 +34,5 @@ public class Room {
     }
 
     public String toString() { return this.name; }
+
 }

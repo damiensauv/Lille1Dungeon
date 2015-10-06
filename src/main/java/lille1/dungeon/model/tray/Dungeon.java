@@ -1,5 +1,7 @@
 package lille1.dungeon.model.tray;
 
+import lille1.dungeon.model.chars.*;
+import lille1.dungeon.model.chars.Character;
 import lille1.dungeon.model.commands.CommandTypes;
 
 public class Dungeon {
@@ -7,17 +9,18 @@ public class Dungeon {
     public static final int GENERATION_TEST_KEY = 9001;
 
     private Room current;
+    private Hero badassHero;
 
-	public Dungeon(int level){
+	public Dungeon(int level, Hero h){
         DungeonBuilder db = new DungeonBuilder(level);
         this.current = db.create();
+        this.badassHero = h;
 	}
 
-    public void interpretCommand(CommandTypes order) {
+    public void interpretCommand(CommandTypes order) throws MonsterRoom.MonsterNotDeadException {
         if(order == CommandTypes.MOVE)   this.current = current.nextRoom(order.getCmd());
         //if(order == CommandTypes.USE)   this.current = current.nextRoom(order.getCmd());
         //if(order == CommandTypes.KILL)   this.current = current.nextRoom(order.getCmd());
-
     }
 
 	public String getCurrentRoomName() {
@@ -35,4 +38,8 @@ public class Dungeon {
     public boolean gameIsWon() { return true;}
 
     public boolean gameIsLost() { return false;}
+
+    public Character getHero() {
+        return this.badassHero;
+    }
 }

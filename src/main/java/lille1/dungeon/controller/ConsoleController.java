@@ -29,6 +29,17 @@ public class ConsoleController implements Controller {
         System.out.println(spec);
     }
 
+    public String getText() {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("> ");
+
+        String currentCommand = scan.nextLine();
+
+        return currentCommand;
+
+    }
+    }
+
     class CommandUnrecognizedException extends Exception {
     }
-}
+

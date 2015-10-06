@@ -22,4 +22,6 @@ public abstract class Character {
     public abstract void setName(String name);
 
     public abstract void hit(Character victim);
+
+    public abstract boolean isDead();
 }
