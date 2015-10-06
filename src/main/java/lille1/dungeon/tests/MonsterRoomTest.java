@@ -7,10 +7,12 @@ import lille1.dungeon.model.tray.MonsterRoom;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.fail;
+
 /**
  * Created by nanosvir on 06 Oct 15.
  */
-public class MonsterRoomTest extends TestCase {
+public class MonsterRoomTest {
 
     private MonsterRoom defaultRoom;
     private Monster defaultMonster;
@@ -18,7 +20,6 @@ public class MonsterRoomTest extends TestCase {
 
     @Before
     public void setUp() throws Exception {
-        super.setUp();
         defaultRoomName = "Entrance";
         defaultMonster = new Monster("Jack");
         defaultRoom = new MonsterRoom(defaultMonster, defaultRoomName);
