@@ -28,7 +28,7 @@ public class Inventory {
      * Add items in Inventory
      */
     public void add(Items item) {
-        this.items.add(item);
+        if(item != null) this.items.add(item);
     }
 
     /**

@@ -1,6 +1,7 @@
 package lille1.dungeon.model.chars;
 
 import lille1.dungeon.model.stuff.Inventory;
+import lille1.dungeon.model.stuff.Items;
 
 /**
  * Created by damien on 30/09/15.
@@ -10,8 +11,6 @@ public class Hero extends Character {
     public static final int HERO_DEFAULT_LIFE = 50;
     public static final int HERO_DEFAULT_STRENGTH = 15;
     public static final int HERO_BONUS_OVER_ALL_CHARS = 2;
-
-    public Inventory inventory;
 
     public Hero(String name) {
         this.setLife(HERO_DEFAULT_LIFE);
@@ -76,5 +75,9 @@ public class Hero extends Character {
     @Override
     public boolean isDead() {
         return (this.getLife() <= 0);
+    }
+
+    public void lootObject(Items loot) {
+        this.inventory.add(loot);
     }
 }

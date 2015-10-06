@@ -8,7 +8,7 @@ import lille1.dungeon.model.commands.CommandTypes;
 
 public class Dungeon {
 
-    public static final int GENERATION_TEST_KEY = 9001;
+    public static final int GENERATION_TEST_KEY = 6;
 
     private Room current;
     private Hero badassHero;
@@ -24,7 +24,8 @@ public class Dungeon {
         //if(order == CommandTypes.USE)   this.current = current.nextRoom(order.getCmd());
         if (order == CommandTypes.KILL) {
             if (this.current instanceof MonsterRoom) {
-
+                MonsterRoom mr = (MonsterRoom) this.getCurrentRoom();
+                mr.processFight(this.badassHero);
             } else throw new RoomIsNotAMonsterRoomException();
         }
     }
@@ -38,14 +39,16 @@ public class Dungeon {
     }
 
     public boolean gameIsFinished() {
-        return this.current.isFinished();
+        return this.gameIsWon() || this.gameIsLost();
     }
 
     public boolean gameIsWon() {
-        return true;
+        if ((this.current instanceof Exit) && (!(this.badassHero.isDead()))) return true;
+        return false;
     }
 
     public boolean gameIsLost() {
+        if (this.badassHero.isDead()) return true;
         return false;
     }
 

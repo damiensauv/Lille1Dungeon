@@ -1,5 +1,9 @@
 package lille1.dungeon.model.chars;
 
+import lille1.dungeon.model.stuff.Items;
+
+import java.util.Random;
+
 /**
  * Created by damien on 30/09/15.
  */
@@ -9,12 +13,15 @@ public class Monster extends Character {
     public static final int MONSTER_DEFAULT_STRENGTH = 10;
 
     public Monster(String name) {
-        this.setLife(MONSTER_DEFAULT_LIFE);
-        this.setStrength(MONSTER_DEFAULT_STRENGTH);
+        this.name = name;
+        this.life = MONSTER_DEFAULT_LIFE;
+        this.strength = MONSTER_DEFAULT_STRENGTH;
     }
 
     public Monster(String name, int life, int strength) {
-
+        this.life = life;
+        this.name = name;
+        this.strength = strength;
     }
 
     @Override
@@ -61,5 +68,15 @@ public class Monster extends Character {
     @Override
     public boolean isDead() {
         return (this.getLife() <= 0);
+    }
+
+    public Items dropObject() {
+        Random lootRand = new Random();
+        switch(lootRand.nextInt(3)) {
+            case 0 : return this.inventory.getFirstKey();
+            case 1 : return this.inventory.getFirstPotion();
+            case 2 : return this.inventory.getFirstWeapon();
+        }
+        return null;
     }
 }

@@ -1,5 +1,7 @@
 package lille1.dungeon.model.chars;
 
+import lille1.dungeon.model.stuff.Inventory;
+
 /**
  * Created by damien on 30/09/15.
  */
@@ -8,6 +10,7 @@ public abstract class Character {
     protected String name;
     protected int life;
     protected int strength;
+    protected Inventory inventory;
 
     public abstract int getLife();
 

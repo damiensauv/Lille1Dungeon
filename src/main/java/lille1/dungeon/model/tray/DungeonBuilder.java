@@ -1,6 +1,7 @@
 package lille1.dungeon.model.tray;
 
 import lille1.dungeon.exceptions.MonsterNotDeadException;
+import lille1.dungeon.model.chars.Monster;
 
 import java.util.Map;
 import java.util.Random;
@@ -10,8 +11,10 @@ import java.util.Random;
  */
 public class DungeonBuilder {
 
+    public static final int TRUE_LEVEL_MODIFIER = 2;
+
     private static final String[] possibleDirections = new String[4];
-    private static final String[] possibleTypes = {"intersection"};
+    private static final String[] possibleTypes = {"intersection", "monster"};
     private Map<String, Room> rooms;
     private Room current;
     private Room entrance;
@@ -57,6 +60,9 @@ public class DungeonBuilder {
         Room roomToCreate;
         if (name.equals("exit") || name.equals("Exit")) roomToCreate = new Exit();
         else roomToCreate = new Room(name);
+        if (name.equals("monster")) {
+            roomToCreate = new MonsterRoom(new Monster("bizuth"), "rummmmeenn");
+        }
         this.current.addDirectionRoom(direction, roomToCreate);
     }
 
@@ -75,22 +81,20 @@ public class DungeonBuilder {
     }
 
     public Room create() {
-        if (level == Dungeon.GENERATION_TEST_KEY) {
-            int trueLevel = 3;
-            int roomsLeft = trueLevel;
-            Random rand = new Random();
-            while (roomsLeft != 0) {
-                int nextType = 0;
-                String currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
-                while (current.isDirectionUsed(currentDirection))
-                    currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
-                addDirection(currentDirection, possibleTypes[nextType]);
-                String commingFrom = this.getOppositeDirection(currentDirection);
-                move(currentDirection, commingFrom);
-                roomsLeft -= 1;
-            }
-            addExit();
+        int trueLevel = this.level*TRUE_LEVEL_MODIFIER;
+        int roomsLeft = trueLevel;
+        Random rand = new Random();
+        while (roomsLeft != 0) {
+            int nextType = rand.nextInt(2);
+            String currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
+            while (current.isDirectionUsed(currentDirection))
+                currentDirection = possibleDirections[rand.nextInt(possibleDirections.length - 1)];
+            addDirection(currentDirection, possibleTypes[nextType]);
+            String commingFrom = this.getOppositeDirection(currentDirection);
+            move(currentDirection, commingFrom);
+            roomsLeft -= 1;
         }
+        addExit();
         return this.entrance;
     }
 

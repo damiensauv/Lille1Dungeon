@@ -12,6 +12,7 @@ public class ConsoleController implements Controller {
 
     public CommandTypes openInput() throws CommandUnrecognizedException {
         Scanner scan = new Scanner(System.in);
+        System.out.println("Possible commands 'go X' 'hit' ");
         System.out.print("> ");
         CommandTypes commandType = null;
 

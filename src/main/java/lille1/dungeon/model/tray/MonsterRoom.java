@@ -1,6 +1,7 @@
 package lille1.dungeon.model.tray;
 
 import lille1.dungeon.exceptions.MonsterNotDeadException;
+import lille1.dungeon.model.chars.Hero;
 import lille1.dungeon.model.chars.Monster;
 
 /**
@@ -16,11 +17,22 @@ public class MonsterRoom extends Room {
     }
 
     public Room nextRoom(String direction) throws MonsterNotDeadException {
-        if (this.monsterInside.isDead()) throw new MonsterNotDeadException();
+        if(!(this.monsterInside.isDead())) throw new MonsterNotDeadException();
         return rooms.get(direction);
     }
 
     public Monster getMonster() {
         return this.monsterInside;
+    }
+
+    public String toString() {
+        if(this.monsterInside!=null) return this.name + " Monster : "+this.monsterInside.getName() + " Life : "+this.monsterInside.getLife();
+        return this.name;
+    }
+
+    public void processFight(Hero badassHero) {
+        badassHero.hit(this.monsterInside);
+        if(this.monsterInside.isDead()) badassHero.lootObject(this.monsterInside.dropObject());
+        this.monsterInside = null;
     }
 }
