@@ -12,17 +12,32 @@ public abstract class Character {
     protected int strength;
     protected Inventory inventory;
 
-    public abstract int getLife();
+    public int getLife() {
+        return this.life;
+    }
 
-    public abstract void setLife(int life);
+    public void setLife(int life) {
+        this.life = life;
+    }
 
-    public abstract int getStrength();
+    public int getStrength() {
+        return this.strength;
+    }
 
-    public abstract void setStrength(int strength);
 
-    public abstract String getName();
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
 
-    public abstract void setName(String name);
+
+    public String getName() {
+        return this.name;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public abstract void hit(Character victim);
 

@@ -81,7 +81,7 @@ public class DungeonBuilder {
     }
 
     public Room create() {
-        int trueLevel = this.level*TRUE_LEVEL_MODIFIER;
+        int trueLevel = this.level * TRUE_LEVEL_MODIFIER;
         int roomsLeft = trueLevel;
         Random rand = new Random();
         while (roomsLeft != 0) {
