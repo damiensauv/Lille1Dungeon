@@ -1,5 +1,6 @@
 package lille1.dungeon.model.tray;
 
+import lille1.dungeon.exceptions.MonsterNotDeadException;
 import lille1.dungeon.model.chars.Monster;
 
 /**
@@ -21,8 +22,5 @@ public class MonsterRoom extends Room {
 
     public Monster getMonster() {
         return this.monsterInside;
-    }
-
-    public class MonsterNotDeadException extends Throwable {
     }
 }

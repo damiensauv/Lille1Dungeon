@@ -1,5 +1,6 @@
 package lille1.dungeon.controller;
 import lille1.dungeon.model.commands.CommandTypes;
+import lille1.dungeon.exceptions.*;
 
 import java.util.Scanner;
 
@@ -38,8 +39,5 @@ public class ConsoleController implements Controller {
         return currentCommand;
 
     }
-    }
-
-    class CommandUnrecognizedException extends Exception {
     }
 

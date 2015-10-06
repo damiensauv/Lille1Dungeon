@@ -1,5 +1,7 @@
 package lille1.dungeon.model.tray;
 
+import lille1.dungeon.exceptions.MonsterNotDeadException;
+
 import java.util.Map;
 import java.util.Random;
 
@@ -63,11 +65,7 @@ public class DungeonBuilder {
     }
 
     public void move(String direction) {
-        try {
-            this.current = this.current.nextRoom(direction);
-        } catch (MonsterRoom.MonsterNotDeadException e) {
-            e.printStackTrace();
-        }
+        this.current = this.current.nextRoom(direction);
     }
 
     public void move(String direction, String fromDirection) {

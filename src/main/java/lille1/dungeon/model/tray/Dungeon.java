@@ -1,5 +1,7 @@
 package lille1.dungeon.model.tray;
 
+import lille1.dungeon.exceptions.MonsterNotDeadException;
+import lille1.dungeon.exceptions.RoomIsNotAMonsterRoomException;
 import lille1.dungeon.model.chars.*;
 import lille1.dungeon.model.chars.Character;
 import lille1.dungeon.model.commands.CommandTypes;
@@ -17,10 +19,15 @@ public class Dungeon {
         this.badassHero = h;
 	}
 
-    public void interpretCommand(CommandTypes order) throws MonsterRoom.MonsterNotDeadException {
+    public void interpretCommand(CommandTypes order) throws MonsterNotDeadException, RoomIsNotAMonsterRoomException {
         if(order == CommandTypes.MOVE)   this.current = current.nextRoom(order.getCmd());
         //if(order == CommandTypes.USE)   this.current = current.nextRoom(order.getCmd());
-        //if(order == CommandTypes.KILL)   this.current = current.nextRoom(order.getCmd());
+        if(order == CommandTypes.KILL) {
+            if(this.current instanceof MonsterRoom) {
+
+            }
+            else throw new RoomIsNotAMonsterRoomException();
+        }
     }
 
 	public String getCurrentRoomName() {

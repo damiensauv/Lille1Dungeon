@@ -1,5 +1,7 @@
 package lille1.dungeon.model.tray;
 
+import lille1.dungeon.exceptions.MonsterNotDeadException;
+
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -16,7 +18,7 @@ public class Room {
 	    this.rooms.put(direction, room);
     }
 
-    public Room nextRoom(String direction) throws MonsterRoom.MonsterNotDeadException {
+    public Room nextRoom(String direction) throws MonsterRoom.MonsterNotDeadException, MonsterNotDeadException {
         if(rooms.get(direction)==null) return this;
 	    return rooms.get(direction);
     }

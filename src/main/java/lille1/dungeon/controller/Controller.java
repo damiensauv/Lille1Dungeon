@@ -1,5 +1,8 @@
 package lille1.dungeon.controller;
 
+import lille1.dungeon.exceptions.CommandUnrecognizedException;
+import lille1.dungeon.exceptions.MonsterNotDeadException;
+import lille1.dungeon.exceptions.RoomIsNotAMonsterRoomException;
 import lille1.dungeon.model.chars.Hero;
 import lille1.dungeon.model.commands.CommandTypes;
 import lille1.dungeon.model.tray.Dungeon;
@@ -12,7 +15,7 @@ import lille1.dungeon.view.Display;
  */
 public interface Controller {
 
-    public CommandTypes openInput() throws CommandUnrecognizedException;
+    public CommandTypes openInput() throws CommandUnrecognizedException, CommandUnrecognizedException;
     public void notify(String not);
 
     public static void main(String[] args) {
@@ -32,9 +35,12 @@ public interface Controller {
                 ct = gameControl.openInput();
                 try {
                     myDungeon.interpretCommand(ct);
-                } catch (MonsterRoom.MonsterNotDeadException e) {
+                } catch (MonsterNotDeadException e) {
                     gameControl.notify("You have to kill the monster !");
+                } catch (RoomIsNotAMonsterRoomException e)  {
+                    gameControl.notify("There is no monster to kill you dumbass !");
                 }
+
             } catch (CommandUnrecognizedException e) {
                 gameControl.notify("Wrong input :");
             }
