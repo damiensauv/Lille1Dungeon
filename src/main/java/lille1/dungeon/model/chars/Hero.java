@@ -104,6 +104,7 @@ public class Hero extends Character {
     }
 
     public void lootObject(Items loot) {
-        this.inventory.add(loot);
+        if (loot != null)
+            this.inventory.add(loot);
     }
 }

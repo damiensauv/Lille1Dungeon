@@ -31,8 +31,9 @@ public class Hit extends BaseAction {
     public String apply(Dungeon myDungeon) throws InvalidActionException {
         if (myDungeon.getCurrentRoom() instanceof MonsterRoom) {
             MonsterRoom monsterRoom = (MonsterRoom) myDungeon.getCurrentRoom();
-            if(monsterRoom.getMonster()!=null) {
-                myDungeon.getHero().hit(monsterRoom.getMonster());
+            if (monsterRoom.getMonster() != null) {
+                monsterRoom.processFight(myDungeon.getHero());
+                if (monsterRoom.getMonster() != null)
                 monsterRoom.getMonster().hit(myDungeon.getHero());
             }
         } else throw new InvalidActionException(Hit.THIS_IS_NOT_A_MONSTER_ROOM);
