@@ -1,13 +1,17 @@
-package lille1.dungeon.model.tray.room;
+package lille1.dungeon.tests;
 
-import junit.framework.TestCase;
+import lille1.dungeon.model.tray.room.Room;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by nsvir on 06 Oct 15.
  */
-public class RoomTest {
+public class RoomTest extends  BaseDungeonTest {
 
     private final static String defaultRoomName = "Entrance";
     private Room defaultRoom;

@@ -20,7 +20,7 @@ repositories {
 sourceSets {
     test {
         java {
-            srcDir 'src/main/java/lille1/dungeon/tests'
+            srcDir 'src/tests/'
         }
     }
 }
