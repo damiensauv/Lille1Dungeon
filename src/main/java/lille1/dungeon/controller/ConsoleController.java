@@ -5,22 +5,32 @@ import lille1.dungeon.model.action.Action;
 import lille1.dungeon.model.action.Go;
 import lille1.dungeon.model.action.Hit;
 import lille1.dungeon.model.action.Use;
+import lille1.dungeon.utils.JavaScanner;
+import lille1.dungeon.utils.Scanner;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by guilleminot on 24/09/15.
  */
 public class ConsoleController extends BaseController {
 
-    Action[] actions = {
-            Go.Instance,
-            Hit.Instance,
-	        Use.Instance
-    };
+    Scanner scan;
+
+    private void init(Scanner scanner) {
+        this.scan = scanner;
+    }
+
+    public ConsoleController() {
+        init(new JavaScanner());
+    }
+
+    public ConsoleController(Scanner mockScanner) {
+        init(mockScanner);
+    }
 
     public Action openInput() throws CommandUnrecognizedException {
-        Scanner scan = new Scanner(System.in);
         System.out.println("Possible commands 'go X' 'hit' 'use ITEMS' ");
         System.out.print("> ");
         Action result = null;
@@ -39,12 +49,8 @@ public class ConsoleController extends BaseController {
     }
 
     public String getText() {
-        Scanner scan = new Scanner(System.in);
         System.out.print("> ");
-
-        String currentCommand = scan.nextLine();
-
-        return currentCommand;
+        return scan.nextLine();
 
     }
 }
