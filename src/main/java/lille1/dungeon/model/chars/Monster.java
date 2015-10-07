@@ -1,7 +1,6 @@
 package lille1.dungeon.model.chars;
 
-import lille1.dungeon.model.stuff.Inventory;
-import lille1.dungeon.model.stuff.Items;
+import lille1.dungeon.model.stuff.*;
 
 import java.util.Random;
 
@@ -58,10 +57,20 @@ public class Monster extends Character {
     public Items dropObject() {
         Random lootRand = new Random();
         switch(lootRand.nextInt(3)) {
-            case 0 : return this.inventory.getFirstKey();
-            case 1 : return this.inventory.getFirstPotion();
-            case 2 : return this.inventory.getFirstWeapon();
+            case 0 : return dropKey();
+            case 1 : return dropPotion();
+            case 2 : return dropWeapon();
         }
         return null;
+    }
+
+    private Items dropKey() {
+        return new Key("Useless key");
+    }
+    private Items dropPotion() {
+        return new Potion("Heal", 30);
+    }
+    private Items dropWeapon() {
+        return new Weapons("Xcalibur", 10);
     }
 }

@@ -28,10 +28,8 @@ public class MonsterTest {
 
     @Test
     public void testGetSetters() {
-        assertEquals(50, m1.getLife());
-        assertEquals(15, m1.getStrength());
-
-        assertNotNull(m1.getInventory());
+        assertEquals(30, m1.getLife());
+        assertEquals(10, m1.getStrength());
     }
 
     @Test
