@@ -1,9 +1,6 @@
 package lille1.dungeon.model.action;
 
-import lille1.dungeon.exceptions.InvalidActionException;
-import lille1.dungeon.exceptions.InvalidCommand;
-import lille1.dungeon.exceptions.MonsterNotDeadException;
-import lille1.dungeon.exceptions.RoomLockedException;
+import lille1.dungeon.exceptions.*;
 import lille1.dungeon.model.tray.Dungeon;
 import lille1.dungeon.utils.Parser;
 
@@ -13,7 +10,7 @@ import lille1.dungeon.utils.Parser;
  */
 public class Go extends BaseAction {
 
-    private static final String PREFIX = "go";
+    public static final String PREFIX = "go";
     private static final String THE_MONSTER_IS_NOT_DEAD = "The monster is not dead";
     private static final String INVALID_COMMAND = "Invalid command";
 
@@ -26,9 +23,10 @@ public class Go extends BaseAction {
     }
 
     @Override
-    public boolean interpretCommand(String string) {
+    public Action interpretCommand(String string) {
         userInput = string;
-        return Parser.isPrefix(Go.PREFIX, string);
+        if (Parser.isPrefix(Go.PREFIX, string)) return new Go(string);
+        return null;
     }
 
     @Override
@@ -41,12 +39,9 @@ public class Go extends BaseAction {
             throw new InvalidActionException(e.getMessage());
         } catch (InvalidCommand invalidCommand) {
             throw new InvalidActionException(Go.INVALID_COMMAND);
+        } catch (InvalidDirectionException e) {
+            throw new InvalidActionException(e.getMessage());
         }
         return "You have successfully been in " + myDungeon.getCurrentRoomName();
-    }
-
-    @Override
-    public Action newInstance() {
-        return new Go(userInput);
     }
 }

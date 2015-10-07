@@ -1,6 +1,8 @@
 package lille1.dungeon.tests;
 
 import junit.framework.TestCase;
+import lille1.dungeon.exceptions.InvalidActionException;
+import lille1.dungeon.exceptions.InvalidDirectionException;
 import lille1.dungeon.exceptions.RoomLockedException;
 import lille1.dungeon.model.chars.Monster;
 import lille1.dungeon.model.tray.MonsterRoom;
@@ -12,7 +14,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by nanosvir on 06 Oct 15.
  */
-public class MonsterRoomTest {
+public class MonsterRoomTest extends BaseDungeonTest {
 
     private MonsterRoom defaultRoom;
     private Monster defaultMonster;
@@ -20,18 +22,20 @@ public class MonsterRoomTest {
 
     @Before
     public void setUp() throws Exception {
+        super.setUp();
         defaultRoomName = "Entrance";
         defaultMonster = new Monster("Jack");
         defaultRoom = new MonsterRoom(defaultMonster, defaultRoomName);
     }
 
     @Test(expected = RoomLockedException.class)
-    public void testNextRoomWithMonster() throws RoomLockedException {
+    public void testNextRoomWithMonster() throws RoomLockedException, InvalidDirectionException {
             defaultRoom.nextRoom("noDirection");
     }
 
-    @Test
-    public void testNextRoomWithDeadMonster() throws Exception {
+    //This is kind of a hack. We should use nextRoom with a valid direction
+    @Test(expected = InvalidDirectionException.class)
+    public void testNextRoomWithDeadMonster() throws RoomLockedException, InvalidDirectionException {
         defaultRoom.getMonster().setLife(0);
         defaultRoom.nextRoom("noDirection");
     }
