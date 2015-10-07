@@ -14,7 +14,8 @@ public class ConsoleController extends BaseController {
 
     Action[] actions = {
             new Go(),
-            new Hit()
+            new Hit(),
+	    new Use()
     };
 
     public Action openInput() throws CommandUnrecognizedException {
