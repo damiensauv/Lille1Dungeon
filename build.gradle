@@ -20,7 +20,7 @@ repositories {
 sourceSets {
     test {
         java {
-            srcDir 'src/tests/'
+            srcDir 'src/tests/java'
         }
     }
 }
