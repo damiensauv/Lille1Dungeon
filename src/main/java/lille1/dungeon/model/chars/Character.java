@@ -17,7 +17,10 @@ public abstract class Character {
     }
 
     public void setLife(int life) {
-        this.life = life;
+        if (this.life < 0)
+            this.life = 0;
+        else
+            this.life = life;
     }
 
     public int getStrength() {
