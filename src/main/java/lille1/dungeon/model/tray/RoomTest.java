@@ -1,4 +1,4 @@
-package lille1.dungeon.model.tray;
+package lille1.dungeon.model.tray.room;
 
 import junit.framework.TestCase;
 import org.junit.Before;
@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * Created by nsvir on 06 Oct 15.
  */
-public class RoomTest extends TestCase {
+public class RoomTest {
 
     private final static String defaultRoomName = "Entrance";
     private Room defaultRoom;

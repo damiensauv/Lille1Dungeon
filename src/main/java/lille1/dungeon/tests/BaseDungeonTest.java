@@ -4,7 +4,7 @@ import lille1.dungeon.model.action.Action;
 import lille1.dungeon.model.action.Go;
 import lille1.dungeon.model.chars.Hero;
 import lille1.dungeon.model.tray.Dungeon;
-import lille1.dungeon.model.tray.Room;
+import lille1.dungeon.model.tray.room.Room;
 import org.junit.Before;
 
 /**

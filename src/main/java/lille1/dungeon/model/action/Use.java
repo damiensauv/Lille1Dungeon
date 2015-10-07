@@ -5,7 +5,7 @@ import lille1.dungeon.exceptions.InvalidCommand;
 import lille1.dungeon.exceptions.InvalidDirectionException;
 import lille1.dungeon.exceptions.RoomLockedException;
 import lille1.dungeon.model.tray.Dungeon;
-import lille1.dungeon.model.tray.MonsterRoom;
+import lille1.dungeon.model.tray.room.MonsterRoom;
 import lille1.dungeon.utils.Parser;
 
 /**

@@ -5,7 +5,7 @@ import lille1.dungeon.exceptions.InvalidActionException;
 import lille1.dungeon.exceptions.InvalidDirectionException;
 import lille1.dungeon.exceptions.RoomLockedException;
 import lille1.dungeon.model.chars.Monster;
-import lille1.dungeon.model.tray.MonsterRoom;
+import lille1.dungeon.model.tray.room.MonsterRoom;
 import org.junit.Before;
 import org.junit.Test;
 
