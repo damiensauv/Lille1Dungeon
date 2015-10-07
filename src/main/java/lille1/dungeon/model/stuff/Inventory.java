@@ -61,7 +61,6 @@ public class Inventory {
     public Weapons getFirstWeapon() {
         for (Items items : this.items) {
             if (items instanceof Weapons) {
-                System.out.println("you get machin Weapon");
                 return ((Weapons) items);
             }
         }
@@ -75,7 +74,6 @@ public class Inventory {
     public Key getFirstKey() {
         for (Items items : this.items) {
             if (items instanceof Key) {
-                System.out.println("you get machin Key");
                 return ((Key) items);
             }
         }
@@ -89,7 +87,6 @@ public class Inventory {
     public Potion getFirstPotion() {
         for (Items items : this.items) {
             if (items instanceof Potion) {
-                System.out.println("you get machin Potion");
                 return ((Potion) items);
             }
         }
