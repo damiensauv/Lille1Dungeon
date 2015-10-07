@@ -1,4 +1,4 @@
-package lille1.dungeon.tests;
+package lille1.dungeon.tests.mock;
 
 /**
  * Created by nanosvir on 07 Oct 15.
