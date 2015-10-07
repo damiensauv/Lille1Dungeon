@@ -12,24 +12,19 @@ import lille1.dungeon.utils.Parser;
 public class Hit extends BaseAction {
 
     private static final String THIS_IS_NOT_A_MONSTER_ROOM = "THis is not a monster room";
+    public static Action Instance = new Hit();
 
-    public Hit(String userInput) {
-        super(userInput);
+    protected Hit(String string) {
+        super(string);
     }
 
-    public Hit() {
+    protected Hit() {
         super();
     }
 
     @Override
     protected String getPrefix() {
         return "hit";
-    }
-
-    @Override
-    public Action interpretCommand(String string) {
-        if (Parser.isPrefix(this.getPrefix(), string)) { return new Hit(string); }
-        return null;
     }
 
     @Override

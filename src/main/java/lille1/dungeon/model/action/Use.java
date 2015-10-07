@@ -15,22 +15,18 @@ public class Use extends BaseAction {
 
     private static final String INVALID_COMMAND = "Invalid command";
     private static final String THIS_IS_NOT_A_MONSTER_ROOM = "THis is not a monster room";
+    public static Action Instance = new Use();
 
-    public Use(String userInput) {
-        super(userInput);
+    protected Use(String string) {
+        super(string);
     }
 
-    public Use() {
+    protected Use() {
+        super();
     }
 
     @Override
     protected String getPrefix() {return "use";}
-
-    @Override
-    public Action interpretCommand(String string) {
-        if (Parser.isPrefix(this.getPrefix(), string)) return new Use(string);
-        return null;
-    }
 
     @Override
     public String apply(Dungeon myDungeon) throws InvalidActionException {

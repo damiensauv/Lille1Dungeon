@@ -18,7 +18,7 @@ public class GoTest extends BaseDungeonTest {
     @Before
     public void setUp() throws Exception {
         super.setUp();
-        action = new Go();
+        action = Go.Instance;
     }
 
     @Test
