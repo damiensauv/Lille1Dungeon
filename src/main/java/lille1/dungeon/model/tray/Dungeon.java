@@ -52,7 +52,7 @@ public class Dungeon {
         return false;
     }
 
-    public Character getHero() {
+    public Hero getHero() {
         return this.badassHero;
     }
 

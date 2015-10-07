@@ -19,7 +19,7 @@ public class ConsoleController extends BaseController {
 
     public Action openInput() throws CommandUnrecognizedException {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Possible commands 'go X' 'hit' ");
+        System.out.println("Possible commands 'go X' 'hit' 'use ITEMS' ");
         System.out.print("> ");
         Action result = null;
         String line = scan.nextLine();
