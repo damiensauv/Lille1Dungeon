@@ -11,12 +11,27 @@ public abstract class BaseAction implements Action {
 
     private String userInput;
 
-    public BaseAction(String userInput) {
+    protected BaseAction(String userInput) {
         this.userInput = userInput;
     }
 
-    public BaseAction() {
+    protected BaseAction() {
 
+    }
+
+    @Override
+    public Action interpretCommand(String string) {
+        if (Parser.isPrefix(this.getPrefix(), string)) return newActionInstance(string);
+        return null;
+    }
+
+    protected Action newActionInstance(String string) {
+        try {
+            return this.getClass().getConstructor(String.class).newInstance(string);
+        } catch (Exception e) {
+            System.err.println("You must implement a constructor with a String parameter for " + this.getClass().toString());
+            return null;
+        }
     }
 
     protected String getUserInput() {

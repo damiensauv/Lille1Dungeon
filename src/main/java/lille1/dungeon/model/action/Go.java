@@ -12,23 +12,19 @@ public class Go extends BaseAction {
 
     private static final String THE_MONSTER_IS_NOT_DEAD = "The monster is not dead";
     private static final String INVALID_COMMAND = "Invalid command";
+    public static Action Instance = new Go();
 
-    public Go(String userInput) {
-        super(userInput);
+    protected Go(String string) {
+        super(string);
     }
 
-    public Go() {
+    protected Go() {
+        super();
     }
 
     @Override
     protected String getPrefix() {
         return "go";
-    }
-
-    @Override
-    public Action interpretCommand(String string) {
-        if (Parser.isPrefix(this.getPrefix(), string)) return new Go(string);
-        return null;
     }
 
     @Override

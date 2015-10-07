@@ -14,9 +14,9 @@ import java.util.Scanner;
 public class ConsoleController extends BaseController {
 
     Action[] actions = {
-            new Go(),
-            new Hit(),
-	        new Use()
+            Go.Instance,
+            Hit.Instance,
+	        Use.Instance
     };
 
     public Action openInput() throws CommandUnrecognizedException {
@@ -32,7 +32,6 @@ public class ConsoleController extends BaseController {
         }
         if (result == null) throw new CommandUnrecognizedException();
         return result;
-
     }
 
     public void notify(String spec) {
