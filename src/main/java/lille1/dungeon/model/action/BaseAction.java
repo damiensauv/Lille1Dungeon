@@ -15,4 +15,9 @@ public abstract class BaseAction implements Action {
     public BaseAction() {
 
     }
+
+    /**
+     * @return the prefix of the expected command
+     */
+    protected abstract String getPrefix();
 }

@@ -10,7 +10,6 @@ import lille1.dungeon.utils.Parser;
  */
 public class Go extends BaseAction {
 
-    public static final String PREFIX = "go";
     private static final String THE_MONSTER_IS_NOT_DEAD = "The monster is not dead";
     private static final String INVALID_COMMAND = "Invalid command";
 
@@ -19,13 +18,17 @@ public class Go extends BaseAction {
     }
 
     public Go() {
+    }
 
+    @Override
+    protected String getPrefix() {
+        return "go";
     }
 
     @Override
     public Action interpretCommand(String string) {
         userInput = string;
-        if (Parser.isPrefix(Go.PREFIX, string)) return new Go(string);
+        if (Parser.isPrefix(this.getPrefix(), string)) return new Go(string);
         return null;
     }
 
