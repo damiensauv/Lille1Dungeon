@@ -1,4 +1,4 @@
-package lille1.dungeon.tests;
+package lille1.dungeon.tests.model.chars;
 
 /**
  * Created by damien on 07/10/15.

@@ -1,7 +1,5 @@
-package lille1.dungeon.tests;
+package lille1.dungeon.tests.model.tray;
 
-import lille1.dungeon.model.action.Action;
-import lille1.dungeon.model.action.Go;
 import lille1.dungeon.model.chars.Hero;
 import lille1.dungeon.model.tray.Dungeon;
 import lille1.dungeon.model.tray.room.Room;
@@ -12,12 +10,12 @@ import org.junit.Before;
  */
 public class BaseDungeonTest {
 
-    Dungeon dungeon;
-    Room directionRoom;
-    String direction;
-    Room entranceRoom;
-    Hero hero;
-    String wrongDirection;
+    public Dungeon dungeon;
+    public Room directionRoom;
+    public String direction;
+    public Room entranceRoom;
+    public Hero hero;
+    public String wrongDirection;
 
     @Before
     public void setUp() throws Exception {

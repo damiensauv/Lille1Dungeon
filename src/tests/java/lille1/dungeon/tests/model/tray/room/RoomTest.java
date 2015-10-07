@@ -1,6 +1,7 @@
-package lille1.dungeon.tests;
+package lille1.dungeon.tests.model.tray.room;
 
 import lille1.dungeon.model.tray.room.Room;
+import lille1.dungeon.tests.model.tray.BaseDungeonTest;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by nsvir on 06 Oct 15.
  */
-public class RoomTest extends  BaseDungeonTest {
+public class RoomTest extends BaseDungeonTest {
 
     private final static String defaultRoomName = "Entrance";
     private Room defaultRoom;

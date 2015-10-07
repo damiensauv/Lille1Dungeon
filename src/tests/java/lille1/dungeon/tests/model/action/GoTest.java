@@ -1,8 +1,9 @@
-package lille1.dungeon.tests;
+package lille1.dungeon.tests.model.action;
 
 import lille1.dungeon.exceptions.InvalidActionException;
 import lille1.dungeon.model.action.Action;
 import lille1.dungeon.model.action.Go;
+import lille1.dungeon.tests.model.tray.BaseDungeonTest;
 import org.junit.Before;
 import org.junit.Test;
 

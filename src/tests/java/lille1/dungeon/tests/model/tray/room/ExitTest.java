@@ -1,4 +1,4 @@
-package lille1.dungeon.tests;
+package lille1.dungeon.tests.model.tray.room;
 
 import junit.framework.TestCase;
 import lille1.dungeon.model.tray.room.Exit;

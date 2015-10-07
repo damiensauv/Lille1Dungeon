@@ -1,6 +1,5 @@
-package lille1.dungeon.tests;
+package lille1.dungeon.tests.model.tray;
 
-import junit.framework.TestCase;
 import lille1.dungeon.model.chars.Hero;
 import lille1.dungeon.model.tray.Dungeon;
 import org.junit.Before;

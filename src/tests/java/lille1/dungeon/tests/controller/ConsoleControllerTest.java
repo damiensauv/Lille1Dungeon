@@ -1,4 +1,4 @@
-package lille1.dungeon.tests;
+package lille1.dungeon.tests.controller;
 
 import lille1.dungeon.controller.ConsoleController;
 import lille1.dungeon.exceptions.CommandUnrecognizedException;

@@ -1,4 +1,4 @@
-package lille1.dungeon.tests;
+package lille1.dungeon.tests.utils;
 
 import junit.framework.TestCase;
 import lille1.dungeon.exceptions.InvalidCommand;

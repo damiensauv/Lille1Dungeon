@@ -1,11 +1,10 @@
-package lille1.dungeon.tests;
+package lille1.dungeon.tests.model.tray.room;
 
-import junit.framework.TestCase;
-import lille1.dungeon.exceptions.InvalidActionException;
 import lille1.dungeon.exceptions.InvalidDirectionException;
 import lille1.dungeon.exceptions.RoomLockedException;
 import lille1.dungeon.model.chars.Monster;
 import lille1.dungeon.model.tray.room.MonsterRoom;
+import lille1.dungeon.tests.model.tray.BaseDungeonTest;
 import org.junit.Before;
 import org.junit.Test;
 
