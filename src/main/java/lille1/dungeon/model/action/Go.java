@@ -27,7 +27,6 @@ public class Go extends BaseAction {
 
     @Override
     public Action interpretCommand(String string) {
-        userInput = string;
         if (Parser.isPrefix(this.getPrefix(), string)) return new Go(string);
         return null;
     }
@@ -36,7 +35,7 @@ public class Go extends BaseAction {
     public String apply(Dungeon myDungeon) throws InvalidActionException {
         String direction = null;
         try {
-            direction = Parser.getPostCommand(userInput);
+            direction = getPostCommand();
             myDungeon.nextRoom(direction);
         } catch (RoomLockedException e) {
             throw new InvalidActionException(e.getMessage());

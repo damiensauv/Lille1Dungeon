@@ -13,7 +13,6 @@ public class Hit extends BaseAction {
 
     private static final String THIS_IS_NOT_A_MONSTER_ROOM = "THis is not a monster room";
 
-
     public Hit(String userInput) {
         super(userInput);
     }
@@ -29,7 +28,6 @@ public class Hit extends BaseAction {
 
     @Override
     public Action interpretCommand(String string) {
-        userInput = string;
         if (Parser.isPrefix(this.getPrefix(), string)) { return new Hit(string); }
         return null;
     }
