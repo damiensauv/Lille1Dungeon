@@ -39,7 +39,15 @@ public abstract class Character {
         this.name = name;
     }
 
+    /**
+     * The Character Hit the victim in parameter
+     * @param victim
+     */
     public abstract void hit(Character victim);
 
+    /**
+     * Check If the Character is Dead
+     * @return boolean
+     */
     public abstract boolean isDead();
 }
