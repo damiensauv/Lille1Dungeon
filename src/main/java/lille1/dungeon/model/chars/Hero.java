@@ -98,11 +98,19 @@ public class Hero extends Character {
         }
     }
 
+    /**
+     * Check if the hero is dead
+     * @return
+     */
     @Override
     public boolean isDead() {
         return (this.getLife() <= 0);
     }
 
+    /**
+     * add object in the inventory
+     * @param loot
+     */
     public void lootObject(Items loot) {
         if (loot != null)
             this.inventory.add(loot);
