@@ -17,6 +17,14 @@ repositories {
     jcenter()
 }
 
+sourceSets {
+    test {
+        java {
+            srcDir 'src/main/java/lille1/dungeon/tests'
+        }
+    }
+}
+
 task run(type:Exec, dependsOn:build) {
     commandLine 'java',  '-jar', './build/libs/Lille1Dungeon.jar'
     standardInput = System.in
