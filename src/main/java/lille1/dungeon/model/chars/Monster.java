@@ -27,6 +27,10 @@ public class Monster extends Character {
         this.inventory = new Inventory();
     }
 
+    /**
+     * Monster hit the victim
+     * @param victim
+     */
     @Override
     public void hit(Character victim) {
         int vStrength = victim.getStrength();
@@ -38,11 +42,19 @@ public class Monster extends Character {
         victim.setLife(vLife);
     }
 
+    /**
+     * Check if monster is dead
+     * @return
+     */
     @Override
     public boolean isDead() {
         return (this.getLife() <= 0);
     }
 
+    /**
+     * Drop Random object after dead
+     * @return
+     */
     public Items dropObject() {
         Random lootRand = new Random();
         switch(lootRand.nextInt(3)) {
