@@ -3,11 +3,9 @@ package lille1.dungeon.tests;
 import lille1.dungeon.controller.ConsoleController;
 import lille1.dungeon.exceptions.CommandUnrecognizedException;
 import lille1.dungeon.model.action.Go;
-import lille1.dungeon.utils.Scanner;
+import lille1.dungeon.tests.mock.MockScanner;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by nanosvir on 07 Oct 15.

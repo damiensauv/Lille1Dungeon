@@ -1,8 +1,6 @@
 package lille1.dungeon.model.tray.room;
 
-import lille1.dungeon.exceptions.InvalidDirectionException;
-import lille1.dungeon.exceptions.MonsterNotDeadException;
-import lille1.dungeon.exceptions.RoomLockedException;
+import lille1.dungeon.exceptions.*;
 import lille1.dungeon.model.chars.Hero;
 import lille1.dungeon.model.chars.Monster;
 
@@ -31,16 +29,6 @@ public class MonsterRoom extends Room {
         return super.nextRoom(direction);
     }
 
-    public Monster getMonster() {
-        return this.monsterInside;
-    }
-
-    public String toString() {
-        if (this.monsterInside != null)
-            return this.name + " Monster : " + this.monsterInside.getName() + " Life : " + this.monsterInside.getLife();
-        return this.name;
-    }
-
     /**
      * /**
      * hit the monster if exists do nothing otherwise
@@ -59,4 +47,15 @@ public class MonsterRoom extends Room {
         }
         return false;
     }
+
+    public Monster getMonster() {
+        return this.monsterInside;
+    }
+
+    public String toString() {
+        if (this.monsterInside != null)
+            return this.name + " Monster : " + this.monsterInside.getName() + " Life : " + this.monsterInside.getLife();
+        return this.name;
+    }
+
 }

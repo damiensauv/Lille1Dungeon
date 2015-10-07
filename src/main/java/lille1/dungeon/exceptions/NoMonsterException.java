@@ -1,4 +1,4 @@
-package lille1.dungeon.model.tray.room;
+package lille1.dungeon.exceptions;
 
 /**
  * Created by nanosvir on 07 Oct 15.

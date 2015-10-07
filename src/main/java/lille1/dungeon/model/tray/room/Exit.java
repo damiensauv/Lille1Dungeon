@@ -6,6 +6,9 @@ public class Exit extends Room {
         super("exit");
     }
 
+    /**
+     * @return <code>true</code> because it is the finish room
+     */
     @Override
     public boolean isFinished() {
         return true;

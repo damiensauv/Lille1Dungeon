@@ -1,6 +1,7 @@
-package lille1.dungeon.model.tray.room;
+package lille1.dungeon.tests;
 
 import junit.framework.TestCase;
+import lille1.dungeon.model.tray.room.Exit;
 import org.junit.Test;
 
 /**
@@ -10,6 +11,6 @@ public class ExitTest extends TestCase {
 
     @Test
     public void testIsFinished() throws Exception {
-        assertTrue(new Exit().isFinished());
+        TestCase.assertTrue(new Exit().isFinished());
     }
 }

@@ -2,10 +2,9 @@ package lille1.dungeon.model.action;
 
 import lille1.dungeon.exceptions.InvalidActionException;
 import lille1.dungeon.model.tray.Dungeon;
-import lille1.dungeon.model.tray.room.MonsterAlreadyDeadException;
+import lille1.dungeon.exceptions.MonsterAlreadyDeadException;
 import lille1.dungeon.model.tray.room.MonsterRoom;
-import lille1.dungeon.model.tray.room.NoMonsterException;
-import lille1.dungeon.utils.Parser;
+import lille1.dungeon.exceptions.NoMonsterException;
 
 /**
  * Created by nsvir on 06/10/15.

@@ -45,10 +45,12 @@ public class RoomTest extends  BaseDungeonTest {
         assertEquals(directionRoom, defaultRoom.builderNextRoom(direction));
     }
 
+    @Test
     public void testIsFinished() throws Exception {
         assertFalse(defaultRoom.isFinished());
     }
 
+    @Test
     public void testGetName() throws Exception {
         assertEquals(defaultRoomName, defaultRoom.getName());
     }
