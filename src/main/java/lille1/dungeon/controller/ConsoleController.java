@@ -4,9 +4,8 @@ import lille1.dungeon.exceptions.*;
 import lille1.dungeon.model.action.Action;
 import lille1.dungeon.model.action.Go;
 import lille1.dungeon.model.action.Hit;
+import lille1.dungeon.model.action.Use;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -16,23 +15,23 @@ public class ConsoleController extends BaseController {
 
     Action[] actions = {
             new Go(),
-            new Hit()
+            new Hit(),
+	        new Use()
     };
 
     public Action openInput() throws CommandUnrecognizedException {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Possible commands 'go X' 'hit' ");
+        System.out.println("Possible commands 'go X' 'hit' 'use ITEMS' ");
         System.out.print("> ");
         Action result = null;
         String line = scan.nextLine();
         for (Action action: this.actions) {
-            if (action.interpreteCommand(line)) {
-                result = action;
+            if ((result = action.interpretCommand(line)) != null) {
                 break;
             }
         }
         if (result == null) throw new CommandUnrecognizedException();
-        return result.newInstance();
+        return result;
 
     }
 

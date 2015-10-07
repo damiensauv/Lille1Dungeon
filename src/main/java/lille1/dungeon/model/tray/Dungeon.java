@@ -1,6 +1,8 @@
 package lille1.dungeon.model.tray;
 
+import lille1.dungeon.exceptions.InvalidDirectionException;
 import lille1.dungeon.exceptions.MonsterNotDeadException;
+import lille1.dungeon.exceptions.RoomLockedException;
 import lille1.dungeon.model.action.Action;
 import lille1.dungeon.model.chars.*;
 import lille1.dungeon.model.chars.Character;
@@ -17,10 +19,17 @@ public class Dungeon {
     private Room currentRoom;
     private Hero badassHero;
 
+    private void init(Room room, Hero hero) {
+        this.currentRoom = room;
+        this.badassHero = hero;
+    }
+
+    public Dungeon(Room room, Hero hero) {
+        init(room, hero);
+    }
+
     public Dungeon(int level, Hero h) {
-        DungeonBuilder db = new DungeonBuilder(level);
-        this.currentRoom = db.create();
-        this.badassHero = h;
+        init(new DungeonBuilder(level).create(), h);
     }
 
     public String getCurrentRoomName() {
@@ -45,11 +54,11 @@ public class Dungeon {
         return false;
     }
 
-    public Character getHero() {
+    public Hero getHero() {
         return this.badassHero;
     }
 
-    public void nextRoom(String direction) throws MonsterNotDeadException {
+    public void nextRoom(String direction) throws RoomLockedException, InvalidDirectionException {
         this.setCurrentRoom(getCurrentRoom().nextRoom(direction));
     }
 

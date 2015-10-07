@@ -11,8 +11,7 @@ import lille1.dungeon.utils.Parser;
  */
 public class Hit extends BaseAction {
 
-    private static final String PREFIX = "hit";
-    private static final String NotAMonsterRoom = "THis is not a monster room";
+    private static final String THIS_IS_NOT_A_MONSTER_ROOM = "THis is not a monster room";
 
     public Hit(String userInput) {
         super(userInput);
@@ -23,9 +22,14 @@ public class Hit extends BaseAction {
     }
 
     @Override
-    public boolean interpreteCommand(String string) {
-        userInput = string;
-        return Parser.isPrefix(Hit.PREFIX, string);
+    protected String getPrefix() {
+        return "hit";
+    }
+
+    @Override
+    public Action interpretCommand(String string) {
+        if (Parser.isPrefix(this.getPrefix(), string)) { return new Hit(string); }
+        return null;
     }
 
     @Override
@@ -33,14 +37,10 @@ public class Hit extends BaseAction {
         if (myDungeon.getCurrentRoom() instanceof MonsterRoom) {
             MonsterRoom monsterRoom = (MonsterRoom) myDungeon.getCurrentRoom();
             if(monsterRoom.getMonster()!=null) {
+                myDungeon.getHero().hit(monsterRoom.getMonster());
                 monsterRoom.getMonster().hit(myDungeon.getHero());
             }
-        } else throw new InvalidActionException(Hit.NotAMonsterRoom);
+        } else throw new InvalidActionException(Hit.THIS_IS_NOT_A_MONSTER_ROOM);
         return "Hit!!";
-    }
-
-    @Override
-    public Action newInstance() {
-        return new Hit(userInput);
     }
 }

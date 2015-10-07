@@ -12,3 +12,8 @@ java -jar ./build/libs/Lille1Dungeon.jar
 or
 
 `gradle run`
+
+QUESTION
+========
+- Action has 2 different behavior
+- factory ne peux pas être hérité car interface non static method

@@ -1,13 +1,8 @@
 package lille1.dungeon.model.action;
 
-import lille1.dungeon.exceptions.InvalidActionException;
-import lille1.dungeon.exceptions.InvalidCommand;
-import lille1.dungeon.exceptions.MonsterNotDeadException;
+import lille1.dungeon.exceptions.*;
 import lille1.dungeon.model.tray.Dungeon;
 import lille1.dungeon.utils.Parser;
-
-import javax.rmi.CORBA.Util;
-import java.awt.*;
 
 /**
  * Created by nsvir on 06/10/15.
@@ -15,40 +10,40 @@ import java.awt.*;
  */
 public class Go extends BaseAction {
 
-    private static final String PREFIX = "go";
-    private static final String MonsterNotDead = "The monster is not dead";
-    private static final String InvalidCommand = "Invalid command";
+    private static final String THE_MONSTER_IS_NOT_DEAD = "The monster is not dead";
+    private static final String INVALID_COMMAND = "Invalid command";
 
     public Go(String userInput) {
         super(userInput);
     }
 
     public Go() {
-
     }
 
     @Override
-    public boolean interpreteCommand(String string) {
-        userInput = string;
-        return Parser.isPrefix(Go.PREFIX, string);
+    protected String getPrefix() {
+        return "go";
+    }
+
+    @Override
+    public Action interpretCommand(String string) {
+        if (Parser.isPrefix(this.getPrefix(), string)) return new Go(string);
+        return null;
     }
 
     @Override
     public String apply(Dungeon myDungeon) throws InvalidActionException {
         String direction = null;
         try {
-            direction = Parser.getPostCommand(userInput);
+            direction = getPostCommand();
             myDungeon.nextRoom(direction);
-        } catch (MonsterNotDeadException e) {
-            throw new InvalidActionException(Go.MonsterNotDead);
+        } catch (RoomLockedException e) {
+            throw new InvalidActionException(e.getMessage());
         } catch (InvalidCommand invalidCommand) {
-            throw new InvalidActionException(Go.InvalidCommand);
+            throw new InvalidActionException(Go.INVALID_COMMAND);
+        } catch (InvalidDirectionException e) {
+            throw new InvalidActionException(e.getMessage());
         }
         return "You have successfully been in " + myDungeon.getCurrentRoomName();
-    }
-
-    @Override
-    public Action newInstance() {
-        return new Go(userInput);
     }
 }
