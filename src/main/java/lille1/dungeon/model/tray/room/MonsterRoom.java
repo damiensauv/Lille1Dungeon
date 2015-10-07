@@ -20,13 +20,14 @@ public class MonsterRoom extends Room {
 
     /**
      * override Room.nextRoom to throw exception if the monster is not dead
+     *
      * @param direction the direction
      * @return the next room
      * @throws MonsterNotDeadException if the monster is not dead
      */
     @Override
     public Room nextRoom(String direction) throws RoomLockedException, InvalidDirectionException {
-        if(!(this.monsterInside.isDead())) throw new MonsterNotDeadException();
+        if (!(this.monsterInside.isDead())) throw new MonsterNotDeadException();
         return super.nextRoom(direction);
     }
 
@@ -35,15 +36,27 @@ public class MonsterRoom extends Room {
     }
 
     public String toString() {
-        if(this.monsterInside!=null) return this.name + " Monster : "+this.monsterInside.getName() + " Life : "+this.monsterInside.getLife();
+        if (this.monsterInside != null)
+            return this.name + " Monster : " + this.monsterInside.getName() + " Life : " + this.monsterInside.getLife();
         return this.name;
     }
 
-    public void processFight(Hero badassHero) {
+    /**
+     * /**
+     * hit the monster if exists do nothing otherwise
+     * @param badassHero the badass hero
+     * @throws MonsterAlreadyDeadException if the monster is already dead
+     * @throws NoMonsterException if NoMonster is in the room
+     * @return <code>true</code> if the hit killed the monster!
+     */
+    public boolean processFight(Hero badassHero) throws MonsterAlreadyDeadException, NoMonsterException {
+        if (monsterInside == null) throw new NoMonsterException();
+        if (monsterInside.isDead()) throw new MonsterAlreadyDeadException();
         badassHero.hit(this.monsterInside);
-        if(this.monsterInside.isDead()) {
+        if (this.monsterInside.isDead()) {
             badassHero.lootObject(this.monsterInside.dropObject());
-            this.monsterInside = null;
+            return true;
         }
+        return false;
     }
 }
