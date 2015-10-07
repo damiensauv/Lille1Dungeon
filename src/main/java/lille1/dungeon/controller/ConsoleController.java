@@ -4,6 +4,7 @@ import lille1.dungeon.exceptions.*;
 import lille1.dungeon.model.action.Action;
 import lille1.dungeon.model.action.Go;
 import lille1.dungeon.model.action.Hit;
+import lille1.dungeon.model.action.Use;
 
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class ConsoleController extends BaseController {
     Action[] actions = {
             new Go(),
             new Hit(),
-	    new Use()
+	        new Use()
     };
 
     public Action openInput() throws CommandUnrecognizedException {
