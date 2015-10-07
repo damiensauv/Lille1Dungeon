@@ -14,7 +14,7 @@ public class Hit extends BaseAction {
     private static final String THIS_IS_NOT_A_MONSTER_ROOM = "THis is not a monster room";
     public static Action Instance = new Hit();
 
-    protected Hit(String string) {
+    public Hit(String string) {
         super(string);
     }
 

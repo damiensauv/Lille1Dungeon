@@ -29,7 +29,7 @@ public abstract class BaseAction implements Action {
         try {
             return this.getClass().getConstructor(String.class).newInstance(string);
         } catch (Exception e) {
-            System.err.println("You must implement a constructor with a String parameter for " + this.getClass().toString());
+            System.err.println("You must implement a public constructor with a String parameter for " + this.getClass().toString());
             return null;
         }
     }

@@ -17,7 +17,7 @@ public class Use extends BaseAction {
     private static final String THIS_IS_NOT_A_MONSTER_ROOM = "THis is not a monster room";
     public static Action Instance = new Use();
 
-    protected Use(String string) {
+    public Use(String string) {
         super(string);
     }
 

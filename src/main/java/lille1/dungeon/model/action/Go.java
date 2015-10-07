@@ -14,7 +14,7 @@ public class Go extends BaseAction {
     private static final String INVALID_COMMAND = "Invalid command";
     public static Action Instance = new Go();
 
-    protected Go(String string) {
+    public Go(String string) {
         super(string);
     }
 
