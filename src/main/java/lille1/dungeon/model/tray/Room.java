@@ -1,5 +1,6 @@
 package lille1.dungeon.model.tray;
 
+import lille1.dungeon.exceptions.InvalidDirectionException;
 import lille1.dungeon.exceptions.RoomLockedException;
 
 import java.util.Map;
@@ -27,7 +28,7 @@ public class Room {
      * @param direction the direction where is the adjacent room
      * @param room the adjacent room
      */
-    protected void addDirectionRoom(String direction, Room room) {
+    public void addDirectionRoom(String direction, Room room) {
 	    this.rooms.put(direction, room);
     }
 
@@ -36,9 +37,9 @@ public class Room {
      * @param direction the direction
      * @return the adjacent room concerned by the direction
      */
-    public Room nextRoom(String direction) throws RoomLockedException {
+    public Room nextRoom(String direction) throws RoomLockedException, InvalidDirectionException {
         Room room = rooms.get(direction);
-        if(room ==null) return this;
+        if(room ==null) throw new InvalidDirectionException(direction);
 	    return room;
     }
 

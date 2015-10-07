@@ -23,9 +23,10 @@ public class Hit extends BaseAction {
     }
 
     @Override
-    public boolean interpretCommand(String string) {
+    public Action interpretCommand(String string) {
         userInput = string;
-        return Parser.isPrefix(Hit.PREFIX, string);
+        if (Parser.isPrefix(Hit.PREFIX, string)) { return new Hit(string); }
+        return null;
     }
 
     @Override
@@ -37,10 +38,5 @@ public class Hit extends BaseAction {
             }
         } else throw new InvalidActionException(Hit.THIS_IS_NOT_A_MONSTER_ROOM);
         return "Hit!!";
-    }
-
-    @Override
-    public Action newInstance() {
-        return new Hit(userInput);
     }
 }

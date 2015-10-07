@@ -24,13 +24,12 @@ public class ConsoleController extends BaseController {
         Action result = null;
         String line = scan.nextLine();
         for (Action action: this.actions) {
-            if (action.interpretCommand(line)) {
-                result = action;
+            if ((result = action.interpretCommand(line)) != null) {
                 break;
             }
         }
         if (result == null) throw new CommandUnrecognizedException();
-        return result.newInstance();
+        return result;
 
     }
 

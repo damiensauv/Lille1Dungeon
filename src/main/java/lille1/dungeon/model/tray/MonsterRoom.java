@@ -1,5 +1,6 @@
 package lille1.dungeon.model.tray;
 
+import lille1.dungeon.exceptions.InvalidDirectionException;
 import lille1.dungeon.exceptions.MonsterNotDeadException;
 import lille1.dungeon.exceptions.RoomLockedException;
 import lille1.dungeon.model.chars.Hero;
@@ -24,7 +25,7 @@ public class MonsterRoom extends Room {
      * @throws MonsterNotDeadException if the monster is not dead
      */
     @Override
-    public Room nextRoom(String direction) throws RoomLockedException {
+    public Room nextRoom(String direction) throws RoomLockedException, InvalidDirectionException {
         if(!(this.monsterInside.isDead())) throw new MonsterNotDeadException();
         return super.nextRoom(direction);
     }
