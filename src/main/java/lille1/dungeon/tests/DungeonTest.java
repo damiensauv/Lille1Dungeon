@@ -23,7 +23,7 @@ public class DungeonTest  {
 
     @Test
     public void initialRoomIsEntrance() {
-        assertEquals("entrance", dungeon.getCurrentRoom());
+        assertEquals("entrance", dungeon.getCurrentRoomName());
     }
 
     @Test
