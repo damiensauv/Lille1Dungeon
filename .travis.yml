@@ -1,4 +1,4 @@
 language: java
 
 script:
-    javac
+    java -jar ./build/libs/Lille1Dungeon.jar
